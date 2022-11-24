@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('url')->nullable();
             $table->string('weekday')->nullable();
             $table->string('month')->nullable();
@@ -22,6 +23,9 @@ return new class extends Migration
             $table->string('hour')->nullable();
             $table->string('minute')->nullable();
             $table->timestamps();
+
+            $table->unique(['user_id', 'url']);
+
         });
     }
 
