@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('schedules', function (Blueprint $table) {
-            $table->tinyInteger('work')->default(0);
+            $table->string('work', 32)->nullable();
         });
     }
 

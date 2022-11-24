@@ -184,7 +184,7 @@ export default {
         formdata: {
             id: undefined,
             name: undefined,
-            work: undefined,
+            work: 0,
             url: undefined,
             common_setting: 0,
             weekday: undefined,
@@ -256,7 +256,7 @@ export default {
             this.formdata = {
                 id: undefined,
                 name: undefined,
-                work: undefined,
+                work: 0,
                 url: undefined,
                 common_setting: 0,
                 weekday: undefined,

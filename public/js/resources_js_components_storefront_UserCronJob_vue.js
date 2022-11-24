@@ -63,7 +63,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formdata: {
         id: undefined,
         name: undefined,
-        work: undefined,
+        work: 0,
         url: undefined,
         common_setting: 0,
         weekday: undefined,
@@ -150,7 +150,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.formdata = {
         id: undefined,
         name: undefined,
-        work: undefined,
+        work: 0,
         url: undefined,
         common_setting: 0,
         weekday: undefined,
