@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Http;
 use DB;
 
 class ScheduleController extends Controller
@@ -48,13 +49,11 @@ class ScheduleController extends Controller
         if ($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
-
-        $storeURL = DB::table('users')->where('user_id', auth()->user()->id)->value('store_url');
-
+        $appURL = config('app.url');
         $url = NULL;
         switch($request->input('work')) {
             case 'auto_backup':
-                $url = "https://{$storeURL}/api/app/auto-backup";
+                $url = "{$appURL}/api/storefront/auto-backup?user_id=" . auth()->user()->id;
                 break;
         }
 
@@ -77,9 +76,16 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function autoBackup(Request $request)
     {
-        //
+
+        $storeUrl = DB::table('users')->where('id', $request->input('id'))->value('store_url');
+        $token = Storage::disk('local')->get("/stores/{$storeUrl}");
+		$userId = auth()->user()->id;
+
+        $response = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
+            'description' => "Zucandu Scheduler"
+        ]);
     }
 
     /**

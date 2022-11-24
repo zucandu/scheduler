@@ -38,10 +38,8 @@ Route::group(['prefix' => 'v1'], function() {
             });
         });
 
+        Route::get('auto-backup', 'V1\Storefront\ScheduleController@autoBackup');
+
     });
-
-    Route::post('add-product-to-cart', 'V1\Storefront\ProductController@addProductToCart');
-    Route::post('remove-cart-product', 'V1\Storefront\ProductController@removeCartProduct');
-
     
 });
