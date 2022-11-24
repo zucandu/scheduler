@@ -24,6 +24,36 @@
                                             <option v-for="item in commonSettings" :key="item.id" :value="item.id">{{ item.text }}</option>
                                         </select>
                                     </div>
+                                    <template v-if="+formdata.common_setting === 8">
+                                        <div class="mb-3">
+                                            <label class="form-label">Minute</label>
+                                            <input v-model="formdata.minute" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Hour</label>
+                                            <input v-model="formdata.hour" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Day</label>
+                                            <input v-model="formdata.day" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Month</label>
+                                            <input v-model="formdata.month" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Weekday</label>
+                                            <input v-model="formdata.weekday" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Day</label>
+                                            <input v-model="formdata.day" type="text" class="form-control" placeholder="0">
+                                        </div>
+                                    </template>
+                                    <div class="mb-3">
+                                        <label class="form-label">URL</label>
+                                        <input v-model="formdata.url" type="text" class="form-control" placeholder="E.g. https://example.com/api/...">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -47,7 +77,9 @@
 <script>
 import Modal from 'bootstrap/js/dist/modal';
 import { mapGetters, mapState } from 'vuex'
+import TermsAndConditions from './TermsAndConditions.vue';
 export default {
+  components: { TermsAndConditions },
     data: () => ({
         commonSettings: [
             { id: 1, text: 'Once Per Minute' },
@@ -57,7 +89,7 @@ export default {
             { id: 5, text: 'Once Per Week' },
             { id: 6, text: 'Once Per Month' },
             { id: 7, text: 'Once Per Year' },
-            { id: 8, text: 'Set a custom schedule' },
+            { id: 8, text: 'Custom Schedule' },
         ],
         formdata: {
             name: undefined,
