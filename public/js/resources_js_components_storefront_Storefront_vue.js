@@ -133,6 +133,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
+  updateCron: function updateCron(formdata) {
+    return axios.post("/api/v1/storefront/user/cron/update", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
   deleteCron: function deleteCron(id) {
     return axios.get("/api/v1/storefront/user/cron/delete/".concat(id), {
       headers: {
@@ -499,7 +506,7 @@ var actions = {
       }, _callee2);
     }))();
   },
-  deleteCron: function deleteCron(_ref3, id) {
+  updateCron: function updateCron(_ref3, formdata) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
@@ -508,7 +515,7 @@ var actions = {
               _objectDestructuringEmpty(_ref3);
 
               _context3.next = 3;
-              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].deleteCron(id);
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].updateCron(formdata);
 
             case 3:
             case "end":
@@ -516,6 +523,25 @@ var actions = {
           }
         }
       }, _callee3);
+    }))();
+  },
+  deleteCron: function deleteCron(_ref4, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref4);
+
+              _context4.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].deleteCron(id);
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
     }))();
   }
 }; // mutations is often used to filter results

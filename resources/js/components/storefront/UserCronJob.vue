@@ -5,7 +5,7 @@
                 <h5 class="mb-3">Cron jobs</h5>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cron-modal">
+                <button @click="resetFormdata" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cron-modal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle me-2" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -17,7 +17,7 @@
                 <div class="modal fade" id="cron-modal" tabindex="-1" aria-labelledby="cron-modal-label" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form @submit.prevent="createCron">
+                            <form @submit.prevent="handleForm">
                                 <div class="modal-header">
                                     <h1 v-if="formdata.id" class="modal-title fs-5" id="cron-modal-label">Edit schedule #{{ formdata.id }}</h1>
                                     <h1 v-else>New schedule</h1>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <div>
-                                        <button @click.stop="resetFormdata" class="btn btn-link">Create a new cron?</button>
+                                        <button @click.stop="resetFormdata" class="btn btn-link px-0">Create a new cron?</button>
                                     </div>
                                     <div>
                                         <button type="button" class="btn btn-secondary me-3" data-bs-dismiss="modal">Close</button>
@@ -191,6 +191,13 @@ export default {
         this.modal = new Modal(document.getElementById('cron-modal'))
     },
     methods: {
+        handleForm() {
+            if(this.formdata.id) {
+                this.updateCron()
+            } else {
+                this.createCron()
+            }
+        },
         createCron() {
             this.$store.dispatch('createCron', this.formdata).then(() => {
                 this.modal.hide()
@@ -203,6 +210,19 @@ export default {
                 })
             })
         },
+        updateCron() {
+            this.$store.dispatch('updateCron', this.formdata).then(() => {
+                this.modal.hide()
+                this.resetFormdata()
+                this.$store.dispatch('allCrons')
+            }).catch(error => {
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
+            })
+        },
+        
         editCron(schedule) {
             this.modal.show()
             this.formdata = { ...schedule }

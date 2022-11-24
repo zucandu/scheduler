@@ -18,6 +18,9 @@ const actions = {
     async createCron({ }, formdata) {
         await apiSchedule.createCron(formdata)
     },
+    async updateCron({ }, formdata) {
+        await apiSchedule.updateCron(formdata)
+    },
     async deleteCron({ }, id) {
         await apiSchedule.deleteCron(id)
     },

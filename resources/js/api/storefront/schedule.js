@@ -13,6 +13,13 @@ export default {
             }
         })
     },
+    updateCron(formdata) {
+        return axios.post(`/api/v1/storefront/user/cron/update`, formdata, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
     deleteCron(id) {
         return axios.get(`/api/v1/storefront/user/cron/delete/${id}`, {
             headers: {

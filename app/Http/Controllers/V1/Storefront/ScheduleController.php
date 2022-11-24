@@ -90,9 +90,28 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:schedules,id',
+            'name' => 'required',
+            'common_setting' => 'numeric',
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        return DB::table('schedules')->where(['id' => $request->input('id'), 'user_id' => auth()->user()->id])->update([
+            'name' => $request->input('name'),
+            'url' => $request->input('url', NULL),
+            'common_setting' => $request->input('common_setting', 0),
+            'weekday' => $request->input('weekday', NULL),
+            'month' => $request->input('month', NULL),
+            'day' => $request->input('day', NULL),
+            'hour' => $request->input('hour', NULL),
+            'minute' => $request->input('minute', NULL)
+        ]);
     }
 
     /**
