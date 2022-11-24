@@ -13,7 +13,7 @@
             </div>
             <div class="col-4 text-center">
                 <router-link to="/" class="logo">
-                    <img class="mx-5" src="/storage/auto-backup.svg" width="60" alt="Zucandu Scheduler">
+                    <img class="mx-5" src="/storage/scheduler.svg" width="60" alt="Zucandu Scheduler">
                 </router-link>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">

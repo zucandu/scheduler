@@ -80,7 +80,7 @@ var _hoisted_5 = {
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "mx-5",
-  src: "/storage/auto-backup.svg",
+  src: "/storage/scheduler.svg",
   width: "60",
   alt: "Zucandu Scheduler"
 }, null, -1
