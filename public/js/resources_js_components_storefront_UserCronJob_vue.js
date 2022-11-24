@@ -56,9 +56,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       workItems: [{
         id: 'auto_backup',
         text: 'Auto backup'
-      }, {
-        id: 'custom',
-        text: 'Enter URL'
       }],
       formdata: {
         id: undefined,

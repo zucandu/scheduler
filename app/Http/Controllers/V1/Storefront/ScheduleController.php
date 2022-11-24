@@ -41,6 +41,7 @@ class ScheduleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'work' => 'required|in:auto_backup',
             'common_setting' => 'numeric',
         ]);
         
@@ -48,10 +49,19 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
+        $storeURL = DB::table('users')->where('user_id', auth()->user()->id)->value('store_url');
+
+        $url = NULL;
+        switch($request->input('work')) {
+            case 'auto_backup':
+                $url = "https://{$storeURL}/api/app/auto-backup";
+                break;
+        }
+
         return DB::table('schedules')->insert([
             'user_id' => auth()->user()->id,
             'name' => $request->input('name'),
-            'url' => $request->input('url', NULL),
+            'url' => $url,
             'common_setting' => $request->input('common_setting', 0),
             'weekday' => $request->input('weekday', NULL),
             'month' => $request->input('month', NULL),
