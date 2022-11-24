@@ -13,4 +13,11 @@ export default {
             }
         })
     },
+    deleteCron(id) {
+        return axios.get(`/api/v1/storefront/user/cron/delete/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
 }

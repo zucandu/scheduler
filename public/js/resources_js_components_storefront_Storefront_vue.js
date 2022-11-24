@@ -132,6 +132,13 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }
     });
+  },
+  deleteCron: function deleteCron(id) {
+    return axios.get("/api/v1/storefront/user/cron/delete/".concat(id), {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
   }
 });
 
@@ -490,6 +497,25 @@ var actions = {
           }
         }
       }, _callee2);
+    }))();
+  },
+  deleteCron: function deleteCron(_ref3, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref3);
+
+              _context3.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].deleteCron(id);
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
     }))();
   }
 }; // mutations is often used to filter results

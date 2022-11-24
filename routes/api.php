@@ -33,6 +33,7 @@ Route::group(['prefix' => 'v1'], function() {
             Route::group(['prefix' => 'cron'], function() {
                 Route::get('all', 'V1\Storefront\ScheduleController@index');
                 Route::post('create', 'V1\Storefront\ScheduleController@store');
+                Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroy');
             });
         });
 

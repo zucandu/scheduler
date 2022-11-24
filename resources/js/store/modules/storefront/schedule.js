@@ -18,6 +18,9 @@ const actions = {
     async createCron({ }, formdata) {
         await apiSchedule.createCron(formdata)
     },
+    async deleteCron({ }, id) {
+        await apiSchedule.deleteCron(id)
+    },
 }
 
 // mutations is often used to filter results
