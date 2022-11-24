@@ -19,7 +19,8 @@
                         <div class="modal-content">
                             <form @submit.prevent="createCron">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="cron-modal-label">Cron</h1>
+                                    <h1 v-if="formdata.id" class="modal-title fs-5" id="cron-modal-label">Edit schedule #{{ formdata.id }}</h1>
+                                    <h1 v-else>New schedule</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -65,9 +66,14 @@
                                         <input v-model="formdata.url" type="text" class="form-control" placeholder="E.g. https://example.com/api/...">
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                <div class="modal-footer justify-content-between">
+                                    <div>
+                                        <button @click.stop="resetFormdata" class="btn btn-link">Create a new cron?</button>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-secondary me-3" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -118,7 +124,12 @@
                                         <span class="text-secondary">N/A</span>
                                     </td>
                                     <td class="text-end">
-                                        <button @click="deleteCron(schedule.id)" class="btn btn-danger">
+                                        <button @click.stop="editCron(schedule)" class="btn btn-info text-white me-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                            </svg>
+                                        </button>
+                                        <button @click="deleteCron(schedule.id)" class="btn btn-danger text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -128,6 +139,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <p v-else>You need to create a schedule.</p>
                     </div>
                     <div v-else>
                         <div class="py-3 bg-secondary opacity-25 rounded w-100 mb-2"></div>
@@ -159,6 +171,7 @@ export default {
             { id: 9, text: 'Custom Schedule' },
         ],
         formdata: {
+            id: undefined,
             name: undefined,
             url: undefined,
             common_setting: 0,
@@ -190,18 +203,26 @@ export default {
                 })
             })
         },
+        editCron(schedule) {
+            this.modal.show()
+            this.formdata = { ...schedule }
+        },
         deleteCron(id) {
-            this.$store.dispatch('deleteCron', id).then(() => {
-                this.$store.dispatch('allCrons')
-            }).catch(error => {
-                this.$store.commit('setAlert', {
-                    'color': 'danger', 
-                    'message': error.response.data.message
+            const wConfirm = confirm(`Are you sure you want to delete this schedule?`);
+            if(wConfirm) {
+                this.$store.dispatch('deleteCron', id).then(() => {
+                    this.$store.dispatch('allCrons')
+                }).catch(error => {
+                    this.$store.commit('setAlert', {
+                        'color': 'danger', 
+                        'message': error.response.data.message
+                    })
                 })
-            })
+            }
         },
         resetFormdata() {
             this.formdata = {
+                id: undefined,
                 name: undefined,
                 url: undefined,
                 common_setting: 0,

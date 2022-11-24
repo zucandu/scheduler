@@ -103,6 +103,14 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        var_dump($id);die;
+        $validator = Validator::make(['id' => $id], [
+            'id' => 'required|exists:schedules,id'
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        return DB::table('schedules')->where('id', $id)->delete();
     }
 }
