@@ -17,7 +17,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $schedules = DB::table('schedules')->where('user_id', auth()->user()->id)->get();
+        return response()->json(['schedules' => $schedules]);
     }
 
     /**
@@ -47,7 +48,17 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        
+        return DB::table('schedules')->insert([
+            'user_id' => auth()->user()->id,
+            'name' => $request->input('name'),
+            'url' => $request->input('url', NULL),
+            'common_setting' => $request->input('common_setting', 0),
+            'weekday' => $request->input('weekday', NULL),
+            'month' => $request->input('month', NULL),
+            'day' => $request->input('day', NULL),
+            'hour' => $request->input('hour', NULL),
+            'minute' => $request->input('minute', NULL)
+        ]);
     }
 
     /**

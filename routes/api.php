@@ -31,6 +31,7 @@ Route::group(['prefix' => 'v1'], function() {
             Route::get('profile', 'V1\Storefront\UserController@index');
             Route::post('update-profile', 'V1\Storefront\UserController@update');
             Route::group(['prefix' => 'cron'], function() {
+                Route::get('all', 'V1\Storefront\ScheduleController@index');
                 Route::post('create', 'V1\Storefront\ScheduleController@store');
             });
         });

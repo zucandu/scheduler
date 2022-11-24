@@ -103,8 +103,12 @@ export default {
             hour: undefined,
             minute: undefined
         },
-        modal: undefined
+        modal: undefined,
+        loaded: false
     }),
+    create() {
+        this.$store.dispatch('allCrons').then(() => this.loaded)
+    },
     mounted() {
         this.modal = new Modal(document.getElementById('cron-modal'))
     },

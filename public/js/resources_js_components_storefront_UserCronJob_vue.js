@@ -60,22 +60,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         hour: undefined,
         minute: undefined
       },
-      modal: undefined
+      modal: undefined,
+      loaded: false
     };
+  },
+  create: function create() {
+    var _this = this;
+
+    this.$store.dispatch('allCrons').then(function () {
+      return _this.loaded;
+    });
   },
   mounted: function mounted() {
     this.modal = new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_0___default())(document.getElementById('cron-modal'));
   },
   methods: {
     createCron: function createCron() {
-      var _this = this;
+      var _this2 = this;
 
       this.$store.dispatch('createCron', this.formdata).then(function () {
-        _this.modal.hide();
+        _this2.modal.hide();
 
-        _this.resetFormdata();
+        _this2.resetFormdata();
       })["catch"](function (error) {
-        _this.$store.commit('setAlert', {
+        _this2.$store.commit('setAlert', {
           'color': 'danger',
           'message': error.response.data.message
         });

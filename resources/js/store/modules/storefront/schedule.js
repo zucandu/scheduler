@@ -12,8 +12,11 @@ const getters = {
 
 // actions 
 const actions = {
-    async createCron({ commit }, formdata) {
-        commit('setSchedules', await apiSchedule.createCron(formdata))
+    async allCrons({ commit }) {
+        commit('setSchedules', await apiSchedule.allCrons())
+    },
+    async createCron({ }, formdata) {
+        await apiSchedule.createCron(formdata)
     },
 }
 
