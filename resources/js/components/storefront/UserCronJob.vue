@@ -18,6 +18,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input v-model="formdata.name" type="text" class="form-control" placeholder="E.g. Backup store" required>
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label">Common settings</label>
                                         <select v-model="formdata.common_setting" class="form-select">
                                             <option :value="0">-- Common settings --</option>
@@ -98,14 +102,30 @@ export default {
             day: undefined,
             hour: undefined,
             minute: undefined
-        }
+        },
+        modal: undefined
     }),
     mounted() {
-        new Modal(document.getElementById('cron-modal'))
+        this.modal = new Modal(document.getElementById('cron-modal'))
     },
     methods: {
         createCron() {
-            alert(1)
+            this.$store.dispatch('createCron', this.formdata).then(() => {
+                /* this.modal.hide()
+                this.resetFormdata() */
+            })
+        },
+        resetFormdata() {
+            this.formdata = {
+                name: undefined,
+                url: undefined,
+                common_setting: 0,
+                weekday: undefined,
+                month: undefined,
+                day: undefined,
+                hour: undefined,
+                minute: undefined
+            }
         }
     },
     computed: {

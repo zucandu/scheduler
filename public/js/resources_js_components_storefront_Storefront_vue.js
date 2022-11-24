@@ -107,6 +107,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/storefront/schedule.js":
+/*!*************************************************!*\
+  !*** ./resources/js/api/storefront/schedule.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  getUserProfile: function getUserProfile(formdata) {
+    return axios.post("/api/v1/storefront/user/cron/create", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/api/storefront/user.js":
 /*!*********************************************!*\
   !*** ./resources/js/api/storefront/user.js ***!
@@ -388,6 +411,75 @@ var mutations = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/storefront/schedule.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/store/modules/storefront/schedule.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/api/storefront/schedule */ "./resources/js/api/storefront/schedule.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+ // initial state
+
+var state = {
+  schedules: []
+}; // getters
+
+var getters = {}; // actions 
+
+var actions = {
+  createCron: function createCron(_ref, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              commit = _ref.commit;
+              _context.t0 = commit;
+              _context.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].createCron(formdata);
+
+            case 4:
+              _context.t1 = _context.sent;
+              (0, _context.t0)('setSchedules', _context.t1);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+}; // mutations is often used to filter results
+
+var mutations = {
+  setSchedules: function setSchedules(state, response) {
+    state.schedules = response.data.schedules;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/storefront/user.js":
 /*!*******************************************************!*\
   !*** ./resources/js/store/modules/storefront/user.js ***!
@@ -495,13 +587,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_modules_storefront_global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/modules/storefront/global */ "./resources/js/store/modules/storefront/global.js");
 /* harmony import */ var _store_modules_storefront_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/store/modules/storefront/auth */ "./resources/js/store/modules/storefront/auth.js");
 /* harmony import */ var _store_modules_storefront_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/store/modules/storefront/user */ "./resources/js/store/modules/storefront/user.js");
+/* harmony import */ var _store_modules_storefront_schedule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/modules/storefront/schedule */ "./resources/js/store/modules/storefront/schedule.js");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   global: _store_modules_storefront_global__WEBPACK_IMPORTED_MODULE_0__["default"],
   auth: _store_modules_storefront_auth__WEBPACK_IMPORTED_MODULE_1__["default"],
-  user: _store_modules_storefront_user__WEBPACK_IMPORTED_MODULE_2__["default"]
+  user: _store_modules_storefront_user__WEBPACK_IMPORTED_MODULE_2__["default"],
+  schedule: _store_modules_storefront_schedule__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
