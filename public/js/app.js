@@ -20353,6 +20353,10 @@ var UserProfile = function UserProfile() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_storefront_UserProfile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/storefront/UserProfile */ "./resources/js/components/storefront/UserProfile.vue"));
 };
 
+var UserCronJob = function UserCronJob() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_storefront_UserCronJob_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/storefront/UserCronJob */ "./resources/js/components/storefront/UserCronJob.vue"));
+};
+
 var storefrontChildrenRoutes = [{
   path: '/',
   name: 'index',
@@ -20392,6 +20396,10 @@ var storefrontChildrenRoutes = [{
     path: 'profile',
     name: 'user_profile',
     component: UserProfile
+  }, {
+    path: 'cronjob',
+    name: 'user_cronjob',
+    component: UserCronJob
   }]
 }, {
   path: '/logout',
@@ -45439,7 +45447,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_storefront_Storefront_vue":1,"resources_js_components_storefront_Index_vue":1,"resources_js_components_storefront_Privacy_vue":1,"resources_js_components_storefront_TermsAndConditions_vue":1,"resources_js_components_storefront_UserLogin_vue":1,"resources_js_components_storefront_UserPasswordForgotten_vue":1,"resources_js_components_storefront_UserPasswordReset_vue":1,"resources_js_components_storefront_UserLogout_vue":1,"resources_js_components_storefront_UserLayout_vue":1,"resources_js_components_storefront_UserDashboard_vue":1,"resources_js_components_storefront_UserProfile_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_storefront_Storefront_vue":1,"resources_js_components_storefront_Index_vue":1,"resources_js_components_storefront_Privacy_vue":1,"resources_js_components_storefront_TermsAndConditions_vue":1,"resources_js_components_storefront_UserLogin_vue":1,"resources_js_components_storefront_UserPasswordForgotten_vue":1,"resources_js_components_storefront_UserPasswordReset_vue":1,"resources_js_components_storefront_UserLogout_vue":1,"resources_js_components_storefront_UserLayout_vue":1,"resources_js_components_storefront_UserDashboard_vue":1,"resources_js_components_storefront_UserProfile_vue":1,"resources_js_components_storefront_UserCronJob_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

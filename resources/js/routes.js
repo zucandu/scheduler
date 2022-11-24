@@ -9,6 +9,7 @@ const UserLogout = () => import(`./components/storefront/UserLogout`)
 const UserLayout = () => import(`./components/storefront/UserLayout`)
 const UserDashboard = () => import(`./components/storefront/UserDashboard`)
 const UserProfile = () => import(`./components/storefront/UserProfile`)
+const UserCronJob = () => import(`./components/storefront/UserCronJob`)
 
 const storefrontChildrenRoutes = [
     {
@@ -57,6 +58,11 @@ const storefrontChildrenRoutes = [
                 name: 'user_profile',
                 component: UserProfile,
             },
+            {
+                path: 'cronjob',
+                name: 'user_cronjob',
+                component: UserCronJob,
+            }
         ]
     },
     {

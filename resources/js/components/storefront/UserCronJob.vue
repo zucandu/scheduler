@@ -1,12 +1,10 @@
 <template>
     <section class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h5>Welcome to Zucandu Schedules</h5>
-        </div>
         <div class="row justify-content-center">
+            <h5 class="mb-3">Cron jobs</h5>
             <div class="col-12">
                 <div class="card card-body">
-                    
+                    dfsdf
                 </div>
             </div>
         </div>
@@ -17,16 +15,19 @@
 import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
+        formdata: {
+        }
     }),
     created() {
+
     },
     methods: {
+        
     },
-    
     computed: {
         ...mapGetters(['urlGetAllParams', 'urlParamValueFromName']),
         ...mapState({
-            profile: state => state.user.profile
+            profile: state => state.user.profile,
         })
     },
 }
