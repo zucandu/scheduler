@@ -4,6 +4,9 @@ namespace App\Http\Controllers\V1\Storefront;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+use DB;
 
 class ScheduleController extends Controller
 {
@@ -35,7 +38,16 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->all());
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'common_setting' => 'numeric',
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        
     }
 
     /**

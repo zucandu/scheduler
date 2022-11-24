@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  getUserProfile: function getUserProfile(formdata) {
+  createCron: function createCron(formdata) {
     return axios.post("/api/v1/storefront/user/cron/create", formdata, {
       headers: {
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))

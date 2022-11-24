@@ -111,8 +111,13 @@ export default {
     methods: {
         createCron() {
             this.$store.dispatch('createCron', this.formdata).then(() => {
-                /* this.modal.hide()
-                this.resetFormdata() */
+                this.modal.hide()
+                this.resetFormdata()
+            }).catch(error => {
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
             })
         },
         resetFormdata() {

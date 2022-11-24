@@ -68,9 +68,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     createCron: function createCron() {
+      var _this = this;
+
       this.$store.dispatch('createCron', this.formdata).then(function () {
-        /* this.modal.hide()
-        this.resetFormdata() */
+        _this.modal.hide();
+
+        _this.resetFormdata();
+      })["catch"](function (error) {
+        _this.$store.commit('setAlert', {
+          'color': 'danger',
+          'message': error.response.data.message
+        });
       });
     },
     resetFormdata: function resetFormdata() {
