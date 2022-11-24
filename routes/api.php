@@ -30,15 +30,8 @@ Route::group(['prefix' => 'v1'], function() {
         Route::group(['prefix' => 'user', 'middleware' => ['auth:api']], function() {
             Route::get('profile', 'V1\Storefront\UserController@index');
             Route::post('update-profile', 'V1\Storefront\UserController@update');
-            Route::get('products', 'V1\Storefront\ProductController@products');
-            Route::get('download-products', 'V1\Storefront\ProductController@downloadProducts');
-            Route::group(['prefix' => 'promotion'], function() {
-                Route::get('all', 'V1\Storefront\PromotionController@index');
-                Route::post('create', 'V1\Storefront\PromotionController@store');
-                Route::post('update', 'V1\Storefront\PromotionController@update');
-                Route::get('delete/{id}', 'V1\Storefront\PromotionController@destroy');
-                Route::get('{id}', 'V1\Storefront\PromotionController@show');
-                Route::post('add-products', 'V1\Storefront\PromotionController@create');
+            Route::group(['prefix' => 'cron'], function() {
+                Route::post('create', 'V1\Storefront\ScheduleController@store');
             });
         });
 

@@ -25,29 +25,29 @@
                                         </select>
                                     </div>
                                     <template v-if="+formdata.common_setting === 8">
-                                        <div class="mb-3">
-                                            <label class="form-label">Minute</label>
-                                            <input v-model="formdata.minute" type="text" class="form-control" placeholder="0">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12 mb-3">
+                                                <label class="form-label">Minute (0 - 59)</label>
+                                                <input v-model="formdata.minute" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6 col-12 mb-3">
+                                                <label class="form-label">Hour (0 - 23)</label>
+                                                <input v-model="formdata.hour" type="text" class="form-control">
+                                            </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Hour</label>
-                                            <input v-model="formdata.hour" type="text" class="form-control" placeholder="0">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Day</label>
-                                            <input v-model="formdata.day" type="text" class="form-control" placeholder="0">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Month</label>
-                                            <input v-model="formdata.month" type="text" class="form-control" placeholder="0">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12 mb-3">
+                                                <label class="form-label">Day</label>
+                                                <input v-model="formdata.day" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6 col-12 mb-3">
+                                                <label class="form-label">Month</label>
+                                                <input v-model="formdata.month" type="text" class="form-control">
+                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Weekday</label>
-                                            <input v-model="formdata.weekday" type="text" class="form-control" placeholder="0">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Day</label>
-                                            <input v-model="formdata.day" type="text" class="form-control" placeholder="0">
+                                            <input v-model="formdata.weekday" type="text" class="form-control">
                                         </div>
                                     </template>
                                     <div class="mb-3">
@@ -77,9 +77,7 @@
 <script>
 import Modal from 'bootstrap/js/dist/modal';
 import { mapGetters, mapState } from 'vuex'
-import TermsAndConditions from './TermsAndConditions.vue';
 export default {
-  components: { TermsAndConditions },
     data: () => ({
         commonSettings: [
             { id: 1, text: 'Once Per Minute' },
