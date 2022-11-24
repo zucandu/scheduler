@@ -18,7 +18,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        
+                                        <label class="form-label">Common settings</label>
+                                        <select v-model="formdata.common_setting" class="form-select">
+                                            <option :value="0">-- Common settings --</option>
+                                            <option v-for="item in commonSettings" :key="item.id" :value="item.id">{{ item.text }}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -58,6 +62,7 @@ export default {
         formdata: {
             name: undefined,
             url: undefined,
+            common_setting: 0,
             weekday: undefined,
             month: undefined,
             day: undefined,

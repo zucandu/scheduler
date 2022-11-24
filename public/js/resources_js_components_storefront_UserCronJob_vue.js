@@ -53,6 +53,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formdata: {
         name: undefined,
         url: undefined,
+        common_setting: 0,
         weekday: undefined,
         month: undefined,
         day: undefined,
@@ -130,11 +131,55 @@ var _hoisted_8 = {
   "class": "modal-content"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-header\"><h1 class=\"modal-title fs-5\" id=\"cron-modal-label\">Cron</h1><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><div class=\"mb-3\"></div></div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button><button type=\"submit\" class=\"btn btn-primary\">Save changes</button></div>", 3);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "modal-header"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "modal-title fs-5",
+  id: "cron-modal-label"
+}, "Cron"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "btn-close",
+  "data-bs-dismiss": "modal",
+  "aria-label": "Close"
+})], -1
+/* HOISTED */
+);
 
-var _hoisted_12 = [_hoisted_9];
+var _hoisted_10 = {
+  "class": "modal-body"
+};
+var _hoisted_11 = {
+  "class": "mb-3"
+};
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-label"
+}, "Common settings", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: 0
+}, "-- Common settings --", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = ["value"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "modal-footer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "btn btn-secondary",
+  "data-bs-dismiss": "modal"
+}, "Close"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "submit",
+  "class": "btn btn-primary"
+}, "Save changes")], -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card card-body"
@@ -144,12 +189,28 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Button trigger modal "), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.createCron && $options.createCron.apply($options, arguments);
     }, ["prevent"]))
-  }, _hoisted_12, 32
+  }, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.formdata.common_setting = $event;
+    }),
+    "class": "form-select"
+  }, [_hoisted_13, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.commonSettings, function (item) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      key: item.id,
+      value: item.id
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.text), 9
+    /* TEXT, PROPS */
+    , _hoisted_14);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.formdata.common_setting]])])]), _hoisted_15], 32
   /* HYDRATE_EVENTS */
-  )])])])]), _hoisted_13])]);
+  )])])])]), _hoisted_16])]);
 }
 
 /***/ }),

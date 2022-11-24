@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('url')->nullable();
+            $table->tinyInteger('common_setting')->default(0);
             $table->string('weekday', 32)->nullable();
             $table->string('month', 32)->nullable();
             $table->string('day', 32)->nullable();
