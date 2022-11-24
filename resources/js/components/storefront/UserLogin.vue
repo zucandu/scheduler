@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="d-flex justify-content-center py-4">
                         <router-link to="/" class="logo">
-                            <img class="mx-5" src="/storage/auto-backup.svg" width="60" alt="Zucandu Auto Backup">
+                            <img class="mx-5" src="/storage/auto-backup.svg" width="60" alt="Zucandu Scheduler">
                         </router-link>
                     </div><!-- End Logo -->
                     
@@ -43,7 +43,7 @@
             </div>
             <div v-else class="row">
                 <div class="col-12 text-center">
-                    <p>You have already logged into the system. Please go to the <router-link to="/store/dashboard">Zucandu Auto Backup Dashboard</router-link> or back to the <router-link to="/">home page</router-link>.</p>
+                    <p>You have already logged into the system. Please go to the <router-link to="/store/dashboard">Zucandu Scheduler Dashboard</router-link> or back to the <router-link to="/">home page</router-link>.</p>
                 </div>
             </div>
         </div>

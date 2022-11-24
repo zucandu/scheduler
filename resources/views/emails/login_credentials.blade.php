@@ -335,7 +335,7 @@
 							<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
 									<td class="logo" style="text-align: center;">
-										<h1><a href="https://freegifts.zucandu.com ">Zucandu Auto Backup</a></h1>
+										<h1><a href="https://freegifts.zucandu.com ">Zucandu Scheduler</a></h1>
 									  </td>
 								</tr>
 							</table>
@@ -347,7 +347,7 @@
 								<tr>
 									<td>
                                         <div class="text" style="padding: 3em; text-align: center;">
-                                            <div>Your account has been created on the <span>Zucandu Auto Backup</span>. Below are your system generated credentials. Please change the password immediately after login.</div>
+                                            <div>Your account has been created on the <span>Zucandu Scheduler</span>. Below are your system generated credentials. Please change the password immediately after login.</div>
                                             <div style="width:5rem;margin:auto;padding:1rem 0;"><hr></div>
                                             <p>URL</p>
                                             <a href="https://freegifts.zucandu.com "><strong>https://freegifts.zucandu.com </strong></a>

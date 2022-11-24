@@ -13,7 +13,7 @@
             </div>
             <div class="col-4 text-center">
                 <a class="blog-header-logo text-dark text-decoration-none" href="#">
-                    <img class="mx-5" src="/storage/auto-backup.svg" width="60" alt="Zucandu Auto Backup">
+                    <img class="mx-5" src="/storage/auto-backup.svg" width="60" alt="Zucandu Scheduler">
                 </a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">

@@ -44,7 +44,7 @@ class PasswordResetRequest extends Notification
     {
 
         $url = url('/reset-password/'.$this->token);
-        config(['app.name' => 'Zucandu Auto Backup']);
+        config(['app.name' => 'Zucandu Scheduler']);
 
         return (new MailMessage)
             ->line('You are receiving this email because we received a password reset request for your account.')

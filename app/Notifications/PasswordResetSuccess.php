@@ -40,7 +40,7 @@ class PasswordResetSuccess extends Notification
      */
     public function toMail($notifiable)
     {
-        config(['app.name' => 'Zucandu Auto Backup']);
+        config(['app.name' => 'Zucandu Scheduler']);
 
         return (new MailMessage)
             ->line('You have successfully changed your password.')
