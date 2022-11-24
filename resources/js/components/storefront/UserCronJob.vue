@@ -71,7 +71,53 @@
             </div>
             <div class="col-12">
                 <div class="card card-body">
-                    dfsdf
+                    <div v-if="loaded">
+                        <table v-if="schedules.length > 0" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Common</th>
+                                    <th class="text-center">Weekday</th>
+                                    <th class="text-center">Month</th>
+                                    <th class="text-center">Day</th>
+                                    <th class="text-center">Hour</th>
+                                    <th class="text-center">Minute</th>
+                                    <th class="text-end"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="schedule in schedules" :key="schedule.id">
+                                    <td>{{ schedule.id }}</td>
+                                    <td>{{ schedule.name }}</td>
+                                    <td>{{ commonSettings.find(item => +item.id === +schedule.common_setting).text }}</td>
+                                    <td class="text-center">
+                                        <span v-if="schedule.weekday">{{ schedule.weekday }}</span>
+                                        <span class="text-secondary">N/A</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span v-if="schedule.month">{{ schedule.month }}</span>
+                                        <span class="text-secondary">N/A</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span v-if="schedule.day">{{ schedule.day }}</span>
+                                        <span class="text-secondary">N/A</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span v-if="schedule.hour">{{ schedule.hour }}</span>
+                                        <span class="text-secondary">N/A</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span v-if="schedule.minute">{{ schedule.minute }}</span>
+                                        <span class="text-secondary">N/A</span>
+                                    </td>
+                                    <td class="text-end">
+                                        end
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +126,7 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal';
-import { mapGetters, mapState } from 'vuex'
+import { mapState } from 'vuex'
 export default {
     data: () => ({
         commonSettings: [
@@ -106,8 +152,8 @@ export default {
         modal: undefined,
         loaded: false
     }),
-    create() {
-        this.$store.dispatch('allCrons').then(() => this.loaded)
+    created() {
+        this.$store.dispatch('allCrons').finally(() => this.loaded = true)
     },
     mounted() {
         this.modal = new Modal(document.getElementById('cron-modal'))
@@ -138,9 +184,9 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['urlGetAllParams', 'urlParamValueFromName']),
         ...mapState({
             profile: state => state.user.profile,
+            schedules: state => state.schedule.schedules,
         })
     },
 }
