@@ -61,6 +61,17 @@
                                             <input v-model="formdata.weekday" type="text" class="form-control">
                                         </div>
                                     </template>
+                                    <div class="mb-3">
+                                        <label class="form-label">Work</label>
+                                        <select v-model="formdata.work" class="form-select">
+                                            <option :value="0">-- Select --</option>
+                                            <option v-for="item in workItems" :key="item.id" :value="item.id">{{ item.text }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">URL</label>
+                                        <input v-model="formdata.url" type="text" class="form-control" placeholder="E.g. https://example.com/api/...">
+                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <div>
@@ -166,9 +177,15 @@ export default {
             { id: 8, text: 'Once Per Year' },
             { id: 9, text: 'Custom Schedule' },
         ],
+        workItems: [
+            { id: 'auto_backup', text: 'Auto backup' },
+            { id: 'custom', text: 'Enter URL' },
+        ],
         formdata: {
             id: undefined,
             name: undefined,
+            work: undefined,
+            url: undefined,
             common_setting: 0,
             weekday: undefined,
             month: undefined,
@@ -239,6 +256,8 @@ export default {
             this.formdata = {
                 id: undefined,
                 name: undefined,
+                work: undefined,
+                url: undefined,
                 common_setting: 0,
                 weekday: undefined,
                 month: undefined,
