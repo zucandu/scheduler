@@ -52,17 +52,7 @@ var _hoisted_1 = {
   "class": "container"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "row justify-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "mb-3"
-}, "Cron jobs"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card card-body"
-}, " dfsdf ")])], -1
-/* HOISTED */
-);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row justify-content-center\"><div class=\"col-12 d-flex justify-content-between align-items-center mb-3\"><h5 class=\"mb-3\">Cron jobs</h5><button class=\"btn btn-primary\">Add new cron job</button></div><div class=\"col-12\"><div class=\"card card-body\"> dfsdf </div></div></div>", 1);
 
 var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {

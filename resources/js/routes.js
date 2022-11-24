@@ -59,8 +59,8 @@ const storefrontChildrenRoutes = [
                 component: UserProfile,
             },
             {
-                path: 'cronjob',
-                name: 'user_cronjob',
+                path: 'cron',
+                name: 'user_cron',
                 component: UserCronJob,
             }
         ]

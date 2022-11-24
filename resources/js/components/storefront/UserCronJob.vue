@@ -1,7 +1,10 @@
 <template>
     <section class="container">
         <div class="row justify-content-center">
-            <h5 class="mb-3">Cron jobs</h5>
+            <div class="col-12 d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-3">Cron jobs</h5>
+                <button class="btn btn-primary">Add new cron job</button>
+            </div>
             <div class="col-12">
                 <div class="card card-body">
                     dfsdf

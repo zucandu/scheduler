@@ -20397,8 +20397,8 @@ var storefrontChildrenRoutes = [{
     name: 'user_profile',
     component: UserProfile
   }, {
-    path: 'cronjob',
-    name: 'user_cronjob',
+    path: 'cron',
+    name: 'user_cron',
     component: UserCronJob
   }]
 }, {
