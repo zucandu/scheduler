@@ -61,10 +61,6 @@
                                             <input v-model="formdata.weekday" type="text" class="form-control">
                                         </div>
                                     </template>
-                                    <div class="mb-3">
-                                        <label class="form-label">URL</label>
-                                        <input v-model="formdata.url" type="text" class="form-control" placeholder="E.g. https://example.com/api/...">
-                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <div>
@@ -173,7 +169,6 @@ export default {
         formdata: {
             id: undefined,
             name: undefined,
-            url: undefined,
             common_setting: 0,
             weekday: undefined,
             month: undefined,
@@ -244,7 +239,6 @@ export default {
             this.formdata = {
                 id: undefined,
                 name: undefined,
-                url: undefined,
                 common_setting: 0,
                 weekday: undefined,
                 month: undefined,
