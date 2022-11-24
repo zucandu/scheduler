@@ -17,7 +17,9 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-
+                                    <div class="mb-3">
+                                        
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -43,7 +45,24 @@ import Modal from 'bootstrap/js/dist/modal';
 import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
+        commonSettings: [
+            { id: 1, text: 'Once Per Minute' },
+            { id: 2, text: 'Once Per Five Minutes' },
+            { id: 3, text: 'Twice Per Hour' },
+            { id: 4, text: 'Twice Per Day' },
+            { id: 5, text: 'Once Per Week' },
+            { id: 6, text: 'Once Per Month' },
+            { id: 7, text: 'Once Per Year' },
+            { id: 8, text: 'Set a custom schedule' },
+        ],
         formdata: {
+            name: undefined,
+            url: undefined,
+            weekday: undefined,
+            month: undefined,
+            day: undefined,
+            hour: undefined,
+            minute: undefined
         }
     }),
     mounted() {

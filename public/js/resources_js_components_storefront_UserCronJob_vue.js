@@ -25,7 +25,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      formdata: {}
+      commonSettings: [{
+        id: 1,
+        text: 'Once Per Minute'
+      }, {
+        id: 2,
+        text: 'Once Per Five Minutes'
+      }, {
+        id: 3,
+        text: 'Twice Per Hour'
+      }, {
+        id: 4,
+        text: 'Twice Per Day'
+      }, {
+        id: 5,
+        text: 'Once Per Week'
+      }, {
+        id: 6,
+        text: 'Once Per Month'
+      }, {
+        id: 7,
+        text: 'Once Per Year'
+      }, {
+        id: 8,
+        text: 'Set a custom schedule'
+      }],
+      formdata: {
+        name: undefined,
+        url: undefined,
+        weekday: undefined,
+        month: undefined,
+        day: undefined,
+        hour: undefined,
+        minute: undefined
+      }
     };
   },
   mounted: function mounted() {
@@ -97,7 +130,7 @@ var _hoisted_8 = {
   "class": "modal-content"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-header\"><h1 class=\"modal-title fs-5\" id=\"cron-modal-label\">Cron</h1><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"></div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button><button type=\"submit\" class=\"btn btn-primary\">Save changes</button></div>", 3);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-header\"><h1 class=\"modal-title fs-5\" id=\"cron-modal-label\">Cron</h1><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><div class=\"mb-3\"></div></div><div class=\"modal-footer\"><button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button><button type=\"submit\" class=\"btn btn-primary\">Save changes</button></div>", 3);
 
 var _hoisted_12 = [_hoisted_9];
 
