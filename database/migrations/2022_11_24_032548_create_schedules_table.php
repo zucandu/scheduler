@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('name');
             $table->string('url')->nullable();
-            $table->string('weekday')->nullable();
-            $table->string('month')->nullable();
-            $table->string('day')->nullable();
-            $table->string('hour')->nullable();
-            $table->string('minute')->nullable();
+            $table->string('weekday', 32)->nullable();
+            $table->string('month', 32)->nullable();
+            $table->string('day', 32)->nullable();
+            $table->string('hour', 32)->nullable();
+            $table->string('minute', 32)->nullable();
             $table->timestamps();
 
             $table->unique(['user_id', 'url']);

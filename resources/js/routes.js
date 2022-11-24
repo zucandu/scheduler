@@ -9,8 +9,6 @@ const UserLogout = () => import(`./components/storefront/UserLogout`)
 const UserLayout = () => import(`./components/storefront/UserLayout`)
 const UserDashboard = () => import(`./components/storefront/UserDashboard`)
 const UserProfile = () => import(`./components/storefront/UserProfile`)
-const UserPromotion = () => import(`./components/storefront/UserPromotion`)
-const UserPromotionAddProduct = () => import(`./components/storefront/UserPromotionAddProduct`)
 
 const storefrontChildrenRoutes = [
     {
@@ -53,16 +51,6 @@ const storefrontChildrenRoutes = [
                 path: 'dashboard',
                 name: 'user_dashboard',
                 component: UserDashboard,
-            },
-            {
-                path: 'promotion',
-                name: 'user_promotion',
-                component: UserPromotion,
-            },
-            {
-                path: 'promotion/:id/add-product',
-                name: 'user_promotion_details',
-                component: UserPromotionAddProduct,
             },
             {
                 path: 'profile',
