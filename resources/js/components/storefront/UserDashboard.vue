@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card card-body">
-                    
+                    <h5>Welcome to Zucandu Scheduler.</h5>
                 </div>
             </div>
         </div>
