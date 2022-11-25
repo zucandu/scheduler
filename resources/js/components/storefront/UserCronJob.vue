@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <div>
+                                    <div v-if="!formdata.id">
                                         <button @click.stop="resetFormdata" class="btn btn-link px-0">Create a new cron?</button>
                                     </div>
                                     <div>
