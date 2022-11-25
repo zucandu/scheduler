@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
             foreach($schedules as $schedule) {
                 Http::accept('application/json')->get($schedule->url);
                 if($resp->failed()) {
-                    Log::error("{$schedule->url} - cannot create a backup.");
+                    Log::error("Console: {$schedule->url} - cannot create a backup.");
                 }
             }
 		})->daily();
