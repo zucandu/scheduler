@@ -55,7 +55,7 @@ class ScheduleController extends Controller
         $url = NULL;
         switch($request->input('work')) {
             case 'auto_backup':
-                $url = "{$appURL}/api/storefront/auto-backup?user_id=" . auth()->user()->id;
+                $url = "{$appURL}/api/v1/storefront/auto-backup?user_id=" . auth()->user()->id;
                 break;
         }
 
