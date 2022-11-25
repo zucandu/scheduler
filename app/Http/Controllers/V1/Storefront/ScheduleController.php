@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use Http;
+use Log;
 use DB;
 
 class ScheduleController extends Controller
@@ -83,9 +84,13 @@ class ScheduleController extends Controller
         $token = Storage::disk('local')->get("/stores/{$storeUrl}");
 		$userId = auth()->user()->id;
 
-        $response = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
+        $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
             'description' => "Zucandu Scheduler"
         ]);
+        if($resp->failed()) {
+            Log::error("{$storeUrl} - cannot create a backup.");
+        }
+        return true;
     }
 
     /**
