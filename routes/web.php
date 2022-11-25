@@ -88,7 +88,7 @@ Route::get('/authorize', function(Request $request) {
             
             // Send the email
             Mail::to($json['email'])->send(new LoginCredentials([
-                'email' => $json['email'],
+                'store_url' => $json['domain'],
                 'password' => $password,
             ]));
 

@@ -351,8 +351,8 @@
                                             <div style="width:5rem;margin:auto;padding:1rem 0;"><hr></div>
                                             <p>URL</p>
                                             <a href="https://freegifts.zucandu.com "><strong>https://freegifts.zucandu.com </strong></a>
-											<p>Email address</p>
-                                            <strong>{{ $notify['email'] }}</strong>
+											<p>Store URL</p>
+                                            <strong>{{ $notify['store_url'] }}</strong>
                                             <p>Password</p>
                                             <strong>{{ $notify['password'] }}</strong>
                                         </div>
