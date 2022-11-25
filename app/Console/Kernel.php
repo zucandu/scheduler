@@ -29,8 +29,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-			
-		})->everyMinute();
+			$schedules = DB::table('schedules')->get();
+            foreach($schedules as $schedule) {
+                Http::accept('application/json')->get($schedule->url);
+                if($resp->failed()) {
+                    Log::error("{$schedule->url} - cannot create a backup.");
+                }
+            }
+		})->daily();
     }
 
     /**

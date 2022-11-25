@@ -82,7 +82,6 @@ class ScheduleController extends Controller
 
         $storeUrl = DB::table('users')->where('id', $request->input('id'))->value('store_url');
         $token = Storage::disk('local')->get("/stores/{$storeUrl}");
-		$userId = auth()->user()->id;
 
         $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
             'description' => "Zucandu Scheduler"
