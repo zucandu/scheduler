@@ -81,7 +81,7 @@ class ScheduleController extends Controller
     public function autoBackup(Request $request)
     {
 
-        $storeUrl = DB::table('users')->where('id', $request->input('id'))->value('store_url');
+        $storeUrl = DB::table('users')->where('id', $request->input('user_id'))->value('store_url');
         $token = Storage::disk('local')->get("/stores/{$storeUrl}");
 
         $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
