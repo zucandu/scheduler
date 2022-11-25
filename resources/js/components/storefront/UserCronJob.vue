@@ -68,10 +68,6 @@
                                             <option v-for="item in workItems" :key="item.id" :value="item.id">{{ item.text }}</option>
                                         </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">URL</label>
-                                        <input v-model="formdata.url" type="text" class="form-control" placeholder="E.g. https://example.com/api/...">
-                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <div>
@@ -184,7 +180,6 @@ export default {
             id: undefined,
             name: undefined,
             work: 0,
-            url: undefined,
             common_setting: 0,
             weekday: undefined,
             month: undefined,
@@ -256,7 +251,6 @@ export default {
                 id: undefined,
                 name: undefined,
                 work: 0,
-                url: undefined,
                 common_setting: 0,
                 weekday: undefined,
                 month: undefined,
