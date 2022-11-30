@@ -12,7 +12,6 @@ const UserProfile = () => import(`./components/storefront/UserProfile`)
 const UserCronJob = () => import(`./components/storefront/UserCronJob`)
 const UserScheduleSalesPrice = () => import(`./components/storefront/UserScheduleSalesPrice`)
 
-
 const storefrontChildrenRoutes = [
     {
         path: '/',
