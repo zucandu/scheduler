@@ -4,6 +4,16 @@
             <div class="col-12">
                 <div class="d-flex justify-content-between mb-3">
                     <h4 class="mb-0">Products</h4>
+                    <div>
+                        <button @click.stop="downloadProducts" :disabled="downloading" class="btn btn-primary rounded ms-3 d-flex align-items-center">
+                            <svg v-if="!downloading" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download me-2" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                            <span v-else class="me-2 small">{{ processing }}%</span>
+                            Download products
+                        </button>
+                    </div>
                 </div>
                 <div class="p-3 bg-white border">
                     <div class="input-group">
@@ -35,9 +45,7 @@
                     <div class="d-flex align-items-center my-lg-3">
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#schedule-modal">
-                        Launch demo modal
-                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#schedule-modal">Set Schedule</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="schedule-modal" tabindex="-1" aria-labelledby="schedule-modal-label" aria-hidden="true">
@@ -48,7 +56,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        sfsdfdsfdf
+                                        This is a modal
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -163,6 +171,7 @@ export default {
         },
         keyword: undefined,
         processing: 0,
+        downloading: false,
         page: 1,
         loading: false,
         resetAll: false,
@@ -189,7 +198,7 @@ export default {
         queryListing(params) {
 
             this.loading = true
-            this.$store.dispatch('allProducts', { objParams: params }).then(() => {
+            this.$store.dispatch('AllProducts', { objParams: params }).then(() => {
                 
             }).catch(error => {
                 this.$store.commit('setAlert', {
@@ -200,6 +209,27 @@ export default {
                 this.loading = false
             })
         },
+        downloadProducts() {
+            this.downloading = true
+            this.$store.dispatch('DownloadProducts', { page: this.page }).then(() => {
+                
+                if(this.downloadStatus.current < this.downloadStatus.total) {
+                    this.processing = Math.round(this.downloadStatus.current*100/this.downloadStatus.total)
+                    this.page++
+                    this.downloadProducts()
+                } else {
+                    this.processing = 0, this.downloading = false, this.page = 1
+                    this.queryListing(this.urlGetAllParams())
+                }
+
+            }).catch(error => {
+                this.downloading = false
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
+            })
+        }
         
     },
     beforeRouteUpdate (to, from, next) {
