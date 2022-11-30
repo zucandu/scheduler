@@ -61,7 +61,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   width: "64",
   height: "64",
   fill: "currentColor",
-  "class": "bi bi-alarm text-secondary mb-3 mx-auto",
+  "class": "bi bi-alarm mb-3 mx-auto",
   viewBox: "0 0 16 16"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"
@@ -72,7 +72,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "text-secondary h4 fw-light text-decoration-none"
+  "class": "h4 fw-light text-decoration-none"
 }, "Cron Jobs", -1
 /* HOISTED */
 );
@@ -87,7 +87,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   width: "64",
   height: "64",
   fill: "currentColor",
-  "class": "bi bi-tag text-secondary mb-3 mx-auto",
+  "class": "bi bi-tag mb-3 mx-auto",
   viewBox: "0 0 16 16"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"
@@ -98,7 +98,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "text-secondary h4 fw-light text-decoration-none"
+  "class": "h4 fw-light text-decoration-none"
 }, "Schedule Sales Price", -1
 /* HOISTED */
 );
@@ -113,14 +113,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         path: "/store/cron"
       });
     }, ["stop"])),
-    "class": "card card-body text-center"
+    "class": "card card-body text-center text-secondary"
   }, _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return _this.$router.push({
         path: "/store/schedule-sales-price"
       });
     }, ["stop"])),
-    "class": "card card-body text-center"
+    "class": "card card-body text-center text-secondary"
   }, _hoisted_10)])])]);
 }
 

@@ -25,8 +25,9 @@ input[type="checkbox"].indeterminate {
 .dashboard-container {
     .card-body {
         cursor: pointer;
-    }
-    &:hover {
-        color: $dark;
+        transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover {
+            color: $primary!important;
+        }
     }
 }

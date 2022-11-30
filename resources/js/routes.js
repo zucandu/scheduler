@@ -10,6 +10,8 @@ const UserLayout = () => import(`./components/storefront/UserLayout`)
 const UserDashboard = () => import(`./components/storefront/UserDashboard`)
 const UserProfile = () => import(`./components/storefront/UserProfile`)
 const UserCronJob = () => import(`./components/storefront/UserCronJob`)
+const UserScheduleSalesPrice = () => import(`./components/storefront/UserScheduleSalesPrice`)
+
 
 const storefrontChildrenRoutes = [
     {
@@ -62,7 +64,12 @@ const storefrontChildrenRoutes = [
                 path: 'cron',
                 name: 'user_cron',
                 component: UserCronJob,
-            }
+            },
+            {
+                path: 'schedule-sales-price',
+                name: 'user_schedule_sales_price',
+                component: UserScheduleSalesPrice,
+            },
         ]
     },
     {

@@ -10848,7 +10848,8 @@ input[type=checkbox].indeterminate {
 
 .dashboard-container .card-body {
   cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.dashboard-container:hover {
-  color: #000633;
+.dashboard-container .card-body:hover {
+  color: #4154f1 !important;
 }
