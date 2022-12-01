@@ -29,9 +29,9 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createSalesPrice(Request $request)
     {
-        //
+        var_dump($request->all());die;
     }
 
     /**

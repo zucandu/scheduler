@@ -158,6 +158,13 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }
     });
+  },
+  addScheduleSalesPrice: function addScheduleSalesPrice(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/create-sales_price", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
   }
 });
 
@@ -568,7 +575,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 // initial state
 var state = {
-  schedules: []
+  schedules: [],
+  schedule_sales_prices: []
 };
 
 // getters
@@ -648,6 +656,28 @@ var actions = {
         }
       }, _callee4);
     }))();
+  },
+  addScheduleSalesPrice: function addScheduleSalesPrice(_ref5, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+      var commit;
+      return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              commit = _ref5.commit;
+              _context5.t0 = commit;
+              _context5.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].addScheduleSalesPrice(formdata);
+            case 4:
+              _context5.t1 = _context5.sent;
+              (0, _context5.t0)('setScheduleSalesPrice', _context5.t1);
+            case 6:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }))();
   }
 };
 
@@ -655,6 +685,9 @@ var actions = {
 var mutations = {
   setSchedules: function setSchedules(state, response) {
     state.schedules = response.data.schedules;
+  },
+  setScheduleSalesPrice: function setScheduleSalesPrice(state, response) {
+    state.schedules = response.data.schedule_sales_price;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({

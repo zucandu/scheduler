@@ -38,6 +38,9 @@ Route::group(['prefix' => 'v1'], function() {
                 Route::post('update', 'V1\Storefront\ScheduleController@update');
                 Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroy');
             });
+            Route::group(['prefix' => 'schedule'], function() {
+                Route::post('create-sales-price', 'V1\Storefront\ScheduleController@createSalesPrice');
+            });
         });
 
         Route::get('auto-backup', 'V1\Storefront\ScheduleController@autoBackup');

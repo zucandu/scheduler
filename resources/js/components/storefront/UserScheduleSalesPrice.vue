@@ -7,34 +7,37 @@
             </div>
             <div class="col-lg-9 col-12 mb-3">
                 <div class="card card-body">
-                    <div class="mb-3">
+                    <form @submit.prevent="addScheduleSalesPrice">
                         <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input type="text" class="form-control" placeholder="E.g. Big Summer Sale">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" placeholder="E.g. Big Summer Sale">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row g-3">
-                        <div class="col-md-4 col-12 mb-3">
-                            <label class="form-label">Discount Amount</label>
-                            <input type="text" class="form-control" placeholder="E.g. 10% of 10">
+                        <div class="row g-3">
+                            <div class="col-md-4 col-12 mb-3">
+                                <label class="form-label">Discount Amount</label>
+                                <input type="text" class="form-control" placeholder="E.g. 10% of 10">
+                            </div>
+                            <div class="col-md-4 col-12 mb-3">
+                                <label class="form-label">Start at</label>
+                                <DatePicker v-model="formdata.started_at" mode="date" timezone="utc" :masks="masks">
+                                    <template v-slot="{ inputValue, inputEvents }">
+                                        <input class="form-control" :value="inputValue" v-on="inputEvents">
+                                    </template>
+                                </DatePicker>
+                            </div>
+                            <div class="col-md-4 col-12 mb-3">
+                                <label class="form-label">Expires at</label>
+                                <DatePicker v-model="formdata.expired_at" mode="date" timezone="utc" :masks="masks">
+                                    <template v-slot="{ inputValue, inputEvents }">
+                                        <input class="form-control" :value="inputValue" v-on="inputEvents">
+                                    </template>
+                                </DatePicker>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-12 mb-3">
-                            <label class="form-label">Start at</label>
-                            <DatePicker v-model="formdata.started_at" mode="date" timezone="utc" :masks="masks">
-                                <template v-slot="{ inputValue, inputEvents }">
-                                    <input class="form-control" :value="inputValue" v-on="inputEvents">
-                                </template>
-                            </DatePicker>
-                        </div>
-                        <div class="col-md-4 col-12 mb-3">
-                            <label class="form-label">Expires at</label>
-                            <DatePicker v-model="formdata.expired_at" mode="date" timezone="utc" :masks="masks">
-                                <template v-slot="{ inputValue, inputEvents }">
-                                    <input class="form-control" :value="inputValue" v-on="inputEvents">
-                                </template>
-                            </DatePicker>
-                        </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -272,8 +275,10 @@ export default {
                     'message': error.response.data.message
                 })
             })
+        },
+        addScheduleSalesPrice() {
+            this.$store.dispatch('addScheduleSalesPrice', this.formdata)
         }
-        
     },
     beforeRouteUpdate (to, from, next) {
         if(to.query) {

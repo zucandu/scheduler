@@ -2,7 +2,8 @@ import apiSchedule from '@/api/storefront/schedule'
 
 // initial state
 const state = {
-    schedules: []
+    schedules: [],
+    schedule_sales_prices: []
 }
 
 // getters
@@ -24,12 +25,18 @@ const actions = {
     async deleteCron({ }, id) {
         await apiSchedule.deleteCron(id)
     },
+    async addScheduleSalesPrice({ commit }, formdata) {
+        commit('setScheduleSalesPrice', await apiSchedule.addScheduleSalesPrice(formdata))
+    }
 }
 
 // mutations is often used to filter results
 const mutations = {
     setSchedules(state, response) {
         state.schedules = response.data.schedules
+    },
+    setScheduleSalesPrice(state, response) {
+        state.schedules = response.data.schedule_sales_price
     }
 };
 
