@@ -160,7 +160,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   createScheduleSalesPrice: function createScheduleSalesPrice(formdata) {
-    return axios.post("/api/v1/storefront/user/schedule/create-sales_price", formdata, {
+    return axios.post("/api/v1/storefront/user/schedule/create-sales-price", formdata, {
       headers: {
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }
