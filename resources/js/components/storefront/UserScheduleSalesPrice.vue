@@ -1,7 +1,36 @@
 <template>
     <section class="container">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-lg-3 col-12 mb-3">
+                <p>Add Schedule</p>
+                <p>You can set the date to apply the sales price into your products.</p>
+            </div>
+            <div class="col-lg-9 col-12 mb-3">
+                <div class="card card-body">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-12 mb-3">
+                            <label class="form-label">Start at</label>
+                            <DatePicker v-model="formdata.started_at" mode="date" timezone="utc" :masks="masks">
+                                    <template v-slot="{ inputValue, inputEvents }">
+                                        <input class="form-control" :value="inputValue" v-on="inputEvents">
+                                    </template>
+                                </DatePicker>
+                        </div>
+                        <div class="col-lg-6 col-12 mb-3">
+                            <label class="form-label">Expires at</label>
+                            <input v-model="formdata.expired_at" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-12 mb-3">
+                <p>Products</p>
+                <p>Select and add products into schedule.</p>
+            </div>
+            <div class="col-lg-9 col-12 mb-3">
                 <div class="d-flex justify-content-between mb-3">
                     <h4 class="mb-0">Products</h4>
                     <div>
@@ -108,7 +137,6 @@
                                         <input v-model="checkAll" type="checkbox" :class="`form-check-input ${(this.checkboxes.length !== this.products.length) && this.checkboxes.length > 0 ? 'indeterminate' : ''}`">
                                     </th>
                                     <th>Store's ID</th>
-                                    <th class="text-center">Image</th>
                                     <th>Name</th>
                                     <th>SKU</th>
                                     <th>Qty</th>
@@ -122,15 +150,7 @@
                                             <input v-model="checkboxes" type="checkbox" :value="product.id" class="form-check-input">
                                         </td>
                                         <td>{{ product.store_product_id }}</td>
-                                        <td class="text-center">
-                                            <template v-if="product.images[0]">
-                                                <img :src="product.images[0]" width="60" alt="" class="img-thumbnail">
-                                            </template>
-                                            <template v-else>
-                                                <img src="/assets/img/no-image.png" alt="" class="img-thumbnail">
-                                            </template>
-                                        </td>
-                                        <td>{{ translation(product, 'name', 'en') }}</td>
+                                        <td>{{ product.name }}</td>
                                         <td>{{ product.sku }}</td>
                                         <td>{{ product.quantity }}</td>
                                         <td>${{ (+product.price).toFixed(2) }}</td>
@@ -156,9 +176,17 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal';
+import { DatePicker } from 'v-calendar';
 import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
+        formdata: {
+            started_at: undefined,
+            expired_at: undefined
+        },
+        masks: {
+            input: 'YYYY-MM-DD',
+        },
         filters: {
             status: [
                 {id: 1, text: 'Active'},
@@ -178,6 +206,7 @@ export default {
         checkboxes: [],
         checkAll: false,
     }),
+    components: { DatePicker },
     created() {
         
         // Get paging products
