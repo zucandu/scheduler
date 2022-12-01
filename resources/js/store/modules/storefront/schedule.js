@@ -30,7 +30,10 @@ const actions = {
     },
     async createScheduleSalesPrice({ commit }, formdata) {
         commit('setScheduleSalesPrice', await apiSchedule.createScheduleSalesPrice(formdata))
-    }
+    },
+    async deleteScheduleSalesPrice({ }, id) {
+        await apiSchedule.deleteScheduleSalesPrice(id)
+    },
 }
 
 // mutations is often used to filter results

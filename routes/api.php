@@ -41,6 +41,7 @@ Route::group(['prefix' => 'v1'], function() {
             Route::group(['prefix' => 'schedule'], function() {
                 Route::get('all-sales-price', 'V1\Storefront\ScheduleController@allSalesPrice');
                 Route::post('create-sales-price', 'V1\Storefront\ScheduleController@createSalesPrice');
+                Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroySalesPrice');
             });
         });
 

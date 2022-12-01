@@ -41,5 +41,12 @@ export default {
             }
         })
     },
-    
+    deleteScheduleSalesPrice(id) {
+        return axios.get(`/api/v1/storefront/user/schedule/delete/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
+
 }

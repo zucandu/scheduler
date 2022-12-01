@@ -193,4 +193,13 @@ class ScheduleController extends Controller
         return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
     }
 
+    public function destroySalesPrice($id)
+    {
+        $validator = Validator::make(['id' => $id], [
+            'id' => 'required|exists:schedule_sales_price,id'
+        ]);
+
+        return DB::table('schedule_sales_price')->where('id', $id)->delete();
+    }
+
 }
