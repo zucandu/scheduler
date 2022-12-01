@@ -22,19 +22,13 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "row flex-nowrap justify-content-between align-items-center"
 };
-
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-4 pt-1\"><a class=\"btn btn-sm btn-link px-0 text-decoration-none\" href=\"https://zucandu.com\" target=\"_blank\"> Zucandu.com <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-box-arrow-in-up-right\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z\"></path><path fill-rule=\"evenodd\" d=\"M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z\"></path></svg></a></div><div class=\"col-4 text-center\"><a class=\"blog-header-logo text-dark text-decoration-none\" href=\"#\"><img class=\"mx-5\" src=\"/storage/scheduler.svg\" width=\"60\" alt=\"Zucandu Scheduler\"></a></div>", 2);
-
 var _hoisted_6 = {
   "class": "col-4 d-flex justify-content-end align-items-center"
 };
-
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", {
   "class": "mt-5"
-}, null, -1
-/* HOISTED */
-);
-
+}, null, -1 /* HOISTED */);
 var _hoisted_8 = {
   "class": "py-3"
 };
@@ -52,7 +46,6 @@ var _hoisted_12 = {
 };
 function render(_ctx, _cache) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/store/dashboard",
     "class": "btn btn-sm btn-success"
@@ -60,9 +53,7 @@ function render(_ctx, _cache) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Dashboard")];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })])])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "p-2",
     to: "/"
@@ -70,9 +61,7 @@ function render(_ctx, _cache) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Home")];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "p-2",
     to: "/privacy"
@@ -80,9 +69,7 @@ function render(_ctx, _cache) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Privacy Policy")];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "p-2",
     to: "/terms-and-conditions"
@@ -90,9 +77,7 @@ function render(_ctx, _cache) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Terms and Conditions")];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })])])])]);
 }
 

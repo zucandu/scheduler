@@ -3262,12 +3262,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_storefront_templates_layout_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/storefront/templates/layout/Header */ "./resources/js/components/storefront/templates/layout/Header.vue");
 /* harmony import */ var _components_storefront_templates_element_Toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/storefront/templates/element/Toast */ "./resources/js/components/storefront/templates/element/Toast.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 
@@ -3283,7 +3283,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     var toggleBtn = document.querySelector('.toggle-sidebar-btn');
-
     if (toggleBtn) {
       toggleBtn.addEventListener('click', function () {
         document.querySelector('body').classList.toggle('toggle-sidebar');
@@ -3309,12 +3308,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/toast */ "./node_modules/bootstrap/js/dist/toast.js");
 /* harmony import */ var bootstrap_js_dist_toast__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_toast__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3347,12 +3346,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/dropdown */ "./node_modules/bootstrap/js/dist/dropdown.js");
 /* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3363,7 +3362,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   created: function created() {
     var _this = this;
-
     if (this.isUserToken) {
       this.$store.dispatch('getUserProfile').then(function () {
         _this.loadedProfile = true;
@@ -3372,7 +3370,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
-
     if (dropdownElementList) {
       dropdownElementList.map(function (dropdownToggleEl) {
         new (bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_0___default())(dropdownToggleEl);
@@ -3414,16 +3411,11 @@ var _hoisted_1 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout-header");
-
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
-
   var _component_element_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("element-toast");
-
   return _ctx.isUserToken ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_element_toast)], 64
-  /* STABLE_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_element_toast)], 64 /* STABLE_FRAGMENT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
 
 /***/ }),
@@ -3451,15 +3443,12 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "toast-body"
 };
-
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "button",
   "class": "btn-close btn-close-white me-2 m-auto",
   "data-bs-dismiss": "toast",
   "aria-label": "Close"
-}, null, -1
-/* HOISTED */
-);
+}, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -3467,11 +3456,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     role: "alert",
     "aria-live": "assertive",
     "aria-atomic": "true"
-  }, [_ctx.alert.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.alert.message), 1
-  /* TEXT */
-  ), _hoisted_4])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
-  /* CLASS */
-  )]);
+  }, [_ctx.alert.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.alert.message), 1 /* TEXT */), _hoisted_4])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2 /* CLASS */)]);
 }
 
 /***/ }),
@@ -3501,7 +3486,6 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "nav-item"
 };
-
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "16",
@@ -3511,18 +3495,11 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   viewBox: "0 0 16 16"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Dashboard", -1
-/* HOISTED */
-);
-
+})], -1 /* HOISTED */);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Dashboard", -1 /* HOISTED */);
 var _hoisted_7 = {
   "class": "nav-item"
 };
-
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "16",
@@ -3534,18 +3511,11 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   d: "M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Cron jobs", -1
-/* HOISTED */
-);
-
+})], -1 /* HOISTED */);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Cron jobs", -1 /* HOISTED */);
 var _hoisted_10 = {
   "class": "nav-item"
 };
-
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "16",
@@ -3555,18 +3525,11 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   viewBox: "0 0 16 16"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Profile", -1
-/* HOISTED */
-);
-
+})], -1 /* HOISTED */);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Profile", -1 /* HOISTED */);
 var _hoisted_13 = {
   "class": "nav-item"
 };
-
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "16",
@@ -3580,17 +3543,11 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "fill-rule": "evenodd",
   d: "M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Logout", -1
-/* HOISTED */
-);
+})], -1 /* HOISTED */);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Logout", -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/store/dashboard",
     "class": "nav-link d-flex align-items-center"
@@ -3598,9 +3555,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_5, _hoisted_6];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/store/cron",
     "class": "nav-link d-flex align-items-center"
@@ -3608,9 +3563,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_8, _hoisted_9];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/store/profile",
     "class": "nav-link d-flex align-items-center"
@@ -3618,9 +3571,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_11, _hoisted_12];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/logout",
     "class": "nav-link"
@@ -3628,9 +3579,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_14, _hoisted_15];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   })])])])]);
 }
 
@@ -3643,7 +3592,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -3660,7 +3609,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): base-component.js
+   * Bootstrap (v5.2.3): base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -3668,7 +3617,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
    * Constants
    */
 
-  const VERSION = '5.2.2';
+  const VERSION = '5.2.3';
   /**
    * Class definition
    */
@@ -3752,7 +3701,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -3763,7 +3712,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/data.js
+   * Bootstrap (v5.2.3): dom/data.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -3828,7 +3777,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap event-handler.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -3839,7 +3788,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/event-handler.js
+   * Bootstrap (v5.2.3): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4121,7 +4070,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -4132,7 +4081,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/manipulator.js
+   * Bootstrap (v5.2.3): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4215,7 +4164,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap selector-engine.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -4226,7 +4175,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/selector-engine.js
+   * Bootstrap (v5.2.3): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4310,7 +4259,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap dropdown.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap dropdown.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -4347,7 +4296,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dropdown.js
+   * Bootstrap (v5.2.3): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4792,7 +4741,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap toast.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap toast.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -4808,7 +4757,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): toast.js
+   * Bootstrap (v5.2.3): toast.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -5042,7 +4991,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap component-functions.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap component-functions.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -5057,7 +5006,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/component-functions.js
+   * Bootstrap (v5.2.3): util/component-functions.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -5098,7 +5047,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap config.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap config.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -5113,7 +5062,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/config.js
+   * Bootstrap (v5.2.3): util/config.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -5187,7 +5136,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(__unused_webpack_module, exports) {
 
 /*!
-  * Bootstrap index.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap index.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -5198,7 +5147,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/index.js
+   * Bootstrap (v5.2.3): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */

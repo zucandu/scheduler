@@ -28,7 +28,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     resetPassword: function resetPassword() {
       var _this = this;
-
       this.$store.dispatch('resetPassword', this.formdata).then(function () {
         _this.$router.push({
           path: '/login',
@@ -77,26 +76,18 @@ var _hoisted_4 = {
 var _hoisted_5 = {
   "class": "d-flex justify-content-center py-4"
 };
-
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "mx-5",
   src: "/storage/scheduler.svg",
   width: "60",
   alt: "Zucandu Scheduler"
-}, null, -1
-/* HOISTED */
-);
-
+}, null, -1 /* HOISTED */);
 var _hoisted_7 = {
   "class": "card card-body shadow-sm w-100"
 };
-
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card-title h5"
-}, "Reset your password", -1
-/* HOISTED */
-);
-
+}, "Reset your password", -1 /* HOISTED */);
 var _hoisted_9 = {
   key: 0,
   "class": "text-danger"
@@ -104,25 +95,17 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "mb-3"
 };
-
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "password",
   "class": "form-label"
-}, "Password", -1
-/* HOISTED */
-);
-
+}, "Password", -1 /* HOISTED */);
 var _hoisted_12 = {
   "class": "mb-3"
 };
-
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "password-confirm",
   "class": "form-label"
-}, "Confirm Password", -1
-/* HOISTED */
-);
-
+}, "Confirm Password", -1 /* HOISTED */);
 var _hoisted_14 = {
   key: 0,
   "class": "text-danger small"
@@ -133,7 +116,6 @@ var _hoisted_15 = {
 var _hoisted_16 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/",
     "class": "logo"
@@ -141,12 +123,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_6];
     }),
-    _: 1
-    /* STABLE */
-
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _ctx.errorMsg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.errorMsg), 1
-  /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    _: 1 /* STABLE */
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Logo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, _ctx.errorMsg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.errorMsg), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.resetPassword();
     }, ["prevent"]))
@@ -159,9 +137,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "password",
     placeholder: "Password",
     required: ""
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.formdata.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.formdata.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return _ctx.formdata.password_confirmation = $event;
     }),
@@ -170,27 +146,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "password-confirm",
     placeholder: "Password Confirmation",
     required: ""
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.formdata.password_confirmation]]), $options.passwordNotMatch ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, "Please make sure your password match")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.formdata.password_confirmation]]), $options.passwordNotMatch ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_14, "Please make sure your password match")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "btn btn-link px-0",
     to: "/login"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Back to login")];
     }),
-    _: 1
-    /* STABLE */
-
+    _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "btn btn-primary",
     type: "submit",
     disabled: $options.passwordNotMatch
-  }, "Reset", 8
-  /* PROPS */
-  , _hoisted_16)])], 32
-  /* HYDRATE_EVENTS */
-  )])])])])]);
+  }, "Reset", 8 /* PROPS */, _hoisted_16)])], 32 /* HYDRATE_EVENTS */)])])])])]);
 }
 
 /***/ }),
