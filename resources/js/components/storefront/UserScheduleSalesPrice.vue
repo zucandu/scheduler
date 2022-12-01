@@ -7,18 +7,32 @@
             </div>
             <div class="col-lg-9 col-12 mb-3">
                 <div class="card card-body">
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="E.g. Big Summer Sale">
+                        </div>
+                    </div>
                     <div class="row g-3">
-                        <div class="col-lg-6 col-12 mb-3">
+                        <div class="col-md-4 col-12 mb-3">
+                            <label class="form-label">Discount Amount</label>
+                            <input type="text" class="form-control" placeholder="E.g. 10% of 10">
+                        </div>
+                        <div class="col-md-4 col-12 mb-3">
                             <label class="form-label">Start at</label>
                             <DatePicker v-model="formdata.started_at" mode="date" timezone="utc" :masks="masks">
-                                    <template v-slot="{ inputValue, inputEvents }">
-                                        <input class="form-control" :value="inputValue" v-on="inputEvents">
-                                    </template>
-                                </DatePicker>
+                                <template v-slot="{ inputValue, inputEvents }">
+                                    <input class="form-control" :value="inputValue" v-on="inputEvents">
+                                </template>
+                            </DatePicker>
                         </div>
-                        <div class="col-lg-6 col-12 mb-3">
+                        <div class="col-md-4 col-12 mb-3">
                             <label class="form-label">Expires at</label>
-                            <input v-model="formdata.expired_at" type="text" class="form-control">
+                            <DatePicker v-model="formdata.expired_at" mode="date" timezone="utc" :masks="masks">
+                                <template v-slot="{ inputValue, inputEvents }">
+                                    <input class="form-control" :value="inputValue" v-on="inputEvents">
+                                </template>
+                            </DatePicker>
                         </div>
                     </div>
                 </div>

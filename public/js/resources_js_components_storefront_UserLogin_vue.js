@@ -39,8 +39,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       var _this = this;
       this.processing = true;
       this.$store.dispatch('login', this.formdata).then(function () {
-        return _this.$store.dispatch('getUserProfile').then(function () {
-          return _this.$router.push('/store/dashboard');
+        _this.$store.dispatch('getUserProfile').then(function () {
+          _this.$router.push('/store/dashboard');
         });
       })["catch"](function (error) {
         _this.errorMsg = error.response.data.message;

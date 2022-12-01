@@ -69,7 +69,11 @@ export default {
     methods: {
         login() {
             this.processing = true
-            this.$store.dispatch('login', this.formdata).then(() => this.$store.dispatch('getUserProfile').then(() => this.$router.push('/store/dashboard'))).catch(error => {
+            this.$store.dispatch('login', this.formdata).then(() => {
+                this.$store.dispatch('getUserProfile').then(() => {
+                    this.$router.push('/store/dashboard')
+                })
+            }).catch(error => {
                 this.errorMsg = error.response.data.message
             })
             .finally(() => {
