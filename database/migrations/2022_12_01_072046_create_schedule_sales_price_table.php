@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('schedule_sales_price', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('discount_amount');
+            $table->string('discount_amount');
             $table->dateTime('started_at', $precision = 0)->nullable();
             $table->dateTime('expired_at', $precision = 0)->nullable();
             $table->timestamps();

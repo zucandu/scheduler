@@ -11,13 +11,13 @@
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control" placeholder="E.g. Big Summer Sale">
+                                <input v-model="formdata.name" type="text" class="form-control" placeholder="E.g. Big Summer Sale">
                             </div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-4 col-12 mb-3">
                                 <label class="form-label">Discount Amount</label>
-                                <input type="text" class="form-control" placeholder="E.g. 10% of 10">
+                                <input v-model="formdata.discount_amount" type="text" class="form-control" placeholder="E.g. 10% of 10">
                             </div>
                             <div class="col-md-4 col-12 mb-3">
                                 <label class="form-label">Start at</label>
@@ -36,7 +36,14 @@
                                 </DatePicker>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                </svg>
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -198,6 +205,8 @@ import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
         formdata: {
+            name: undefined,
+            discount_amount: undefined,
             started_at: undefined,
             expired_at: undefined
         },
@@ -231,6 +240,9 @@ export default {
 
         // Show resetAll
         this.resetAll = Object.keys(this.$route.query).filter(k => k !== 'page').length > 0
+
+        // Load all schedule sales price
+        this.$store.dispatch('allScheduleSalesPrice')
 
     },
     mounted() {
@@ -277,7 +289,15 @@ export default {
             })
         },
         createScheduleSalesPrice() {
-            this.$store.dispatch('createScheduleSalesPrice', this.formdata)
+            this.$store.dispatch('createScheduleSalesPrice', this.formdata).finally(() => this.resetForm())
+        },
+        resetForm() {
+            this.formdata = {
+                name: undefined,
+                discount_amount: undefined,
+                started_at: undefined,
+                expired_at: undefined
+            }
         }
     },
     beforeRouteUpdate (to, from, next) {
@@ -296,6 +316,7 @@ export default {
         ...mapState({
             products: state => state.product.products,
             paginationLinks: state => state.product.paginationLinks,
+            schedule_sales_price: state => state.schedule.schedule_sales_price,
         })
     },
     watch: {

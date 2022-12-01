@@ -25,6 +25,9 @@ const actions = {
     async deleteCron({ }, id) {
         await apiSchedule.deleteCron(id)
     },
+    async allScheduleSalesPrice({ commit }) {
+        commit('setScheduleSalesPrice', await apiSchedule.allScheduleSalesPrice())
+    },
     async createScheduleSalesPrice({ commit }, formdata) {
         commit('setScheduleSalesPrice', await apiSchedule.createScheduleSalesPrice(formdata))
     }
@@ -36,7 +39,7 @@ const mutations = {
         state.schedules = response.data.schedules
     },
     setScheduleSalesPrice(state, response) {
-        state.schedules = response.data.schedule_sales_price
+        state.schedule_sales_price = response.data.schedule_sales_price
     }
 };
 

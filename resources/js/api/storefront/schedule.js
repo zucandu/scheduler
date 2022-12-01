@@ -27,6 +27,13 @@ export default {
             }
         })
     },
+    allScheduleSalesPrice() {
+        return axios.get(`/api/v1/storefront/user/schedule/all-sales-price`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
     createScheduleSalesPrice(formdata) {
         return axios.post(`/api/v1/storefront/user/schedule/create-sales-price`, formdata, {
             headers: {

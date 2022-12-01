@@ -159,6 +159,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
+  allScheduleSalesPrice: function allScheduleSalesPrice() {
+    return axios.get("/api/v1/storefront/user/schedule/all-sales-price", {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
   createScheduleSalesPrice: function createScheduleSalesPrice(formdata) {
     return axios.post("/api/v1/storefront/user/schedule/create-sales-price", formdata, {
       headers: {
@@ -657,7 +664,7 @@ var actions = {
       }, _callee4);
     }))();
   },
-  createScheduleSalesPrice: function createScheduleSalesPrice(_ref5, formdata) {
+  allScheduleSalesPrice: function allScheduleSalesPrice(_ref5) {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
       var commit;
       return _regeneratorRuntime().wrap(function _callee5$(_context5) {
@@ -667,7 +674,7 @@ var actions = {
               commit = _ref5.commit;
               _context5.t0 = commit;
               _context5.next = 4;
-              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].createScheduleSalesPrice(formdata);
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].allScheduleSalesPrice();
             case 4:
               _context5.t1 = _context5.sent;
               (0, _context5.t0)('setScheduleSalesPrice', _context5.t1);
@@ -678,6 +685,28 @@ var actions = {
         }
       }, _callee5);
     }))();
+  },
+  createScheduleSalesPrice: function createScheduleSalesPrice(_ref6, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+      var commit;
+      return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              commit = _ref6.commit;
+              _context6.t0 = commit;
+              _context6.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].createScheduleSalesPrice(formdata);
+            case 4:
+              _context6.t1 = _context6.sent;
+              (0, _context6.t0)('setScheduleSalesPrice', _context6.t1);
+            case 6:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }))();
   }
 };
 
@@ -687,7 +716,7 @@ var mutations = {
     state.schedules = response.data.schedules;
   },
   setScheduleSalesPrice: function setScheduleSalesPrice(state, response) {
-    state.schedules = response.data.schedule_sales_price;
+    state.schedule_sales_price = response.data.schedule_sales_price;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({

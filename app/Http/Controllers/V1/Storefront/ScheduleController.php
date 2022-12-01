@@ -25,16 +25,6 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function createSalesPrice(Request $request)
-    {
-        var_dump($request->all());die;
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -153,4 +143,44 @@ class ScheduleController extends Controller
 
         return DB::table('schedules')->where('id', $id)->delete();
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function allSalesPrice()
+    {
+        return DB::table('schedule_sales_price')->get();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createSalesPrice(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'discount_amount' => 'required|min:1',
+            'started_at' => 'required'
+        ]);
+
+        $startedAt = Carbon::parse($request->input('started_at'))->format('Y-m-d H:i:s');
+        $expiredAt = NULL;
+        if($request->input('expired_at')) {
+            $expiredAt = Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i:s');;
+        }
+
+        DB::table('schedule_sales_price')->insert([
+            'name' => $request->input('name'),
+            'discount_amount' => $request->input('discount_amount'),
+            'started_at' => $startedAt,
+            'expired_at' => $expiredAt
+        ]);
+
+        return response()->json(['schedule_sales_price' => $this->allSalesPrice()]);
+    }
+    
 }
