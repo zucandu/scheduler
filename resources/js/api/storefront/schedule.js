@@ -27,7 +27,7 @@ export default {
             }
         })
     },
-    addScheduleSalesPrice(formdata) {
+    createScheduleSalesPrice(formdata) {
         return axios.post(`/api/v1/storefront/user/schedule/create-sales_price`, formdata, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`

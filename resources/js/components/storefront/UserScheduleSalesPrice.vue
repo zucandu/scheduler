@@ -7,7 +7,7 @@
             </div>
             <div class="col-lg-9 col-12 mb-3">
                 <div class="card card-body">
-                    <form @submit.prevent="addScheduleSalesPrice">
+                    <form @submit.prevent="createScheduleSalesPrice">
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
@@ -276,8 +276,8 @@ export default {
                 })
             })
         },
-        addScheduleSalesPrice() {
-            this.$store.dispatch('addScheduleSalesPrice', this.formdata)
+        createScheduleSalesPrice() {
+            this.$store.dispatch('createScheduleSalesPrice', this.formdata)
         }
     },
     beforeRouteUpdate (to, from, next) {

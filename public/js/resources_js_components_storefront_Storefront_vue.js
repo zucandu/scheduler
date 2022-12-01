@@ -159,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  addScheduleSalesPrice: function addScheduleSalesPrice(formdata) {
+  createScheduleSalesPrice: function createScheduleSalesPrice(formdata) {
     return axios.post("/api/v1/storefront/user/schedule/create-sales_price", formdata, {
       headers: {
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
@@ -657,7 +657,7 @@ var actions = {
       }, _callee4);
     }))();
   },
-  addScheduleSalesPrice: function addScheduleSalesPrice(_ref5, formdata) {
+  createScheduleSalesPrice: function createScheduleSalesPrice(_ref5, formdata) {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
       var commit;
       return _regeneratorRuntime().wrap(function _callee5$(_context5) {
@@ -667,7 +667,7 @@ var actions = {
               commit = _ref5.commit;
               _context5.t0 = commit;
               _context5.next = 4;
-              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].addScheduleSalesPrice(formdata);
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].createScheduleSalesPrice(formdata);
             case 4:
               _context5.t1 = _context5.sent;
               (0, _context5.t0)('setScheduleSalesPrice', _context5.t1);
