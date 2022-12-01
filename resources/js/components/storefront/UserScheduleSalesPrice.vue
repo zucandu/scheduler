@@ -6,7 +6,7 @@
                 <p>You can set the date to apply the sales price into your products.</p>
             </div>
             <div class="col-lg-9 col-12 mb-3">
-                <div class="card card-body">
+                <div class="card card-body">{{ scheduleSalesPrice }}
                     <form @submit.prevent="createScheduleSalesPrice">
                         <div class="mb-3">
                             <div class="mb-3">
@@ -316,7 +316,7 @@ export default {
         ...mapState({
             products: state => state.product.products,
             paginationLinks: state => state.product.paginationLinks,
-            schedule_sales_price: state => state.schedule.schedule_sales_price,
+            scheduleSalesPrice: state => state.schedule.scheduleSalesPrice,
         })
     },
     watch: {

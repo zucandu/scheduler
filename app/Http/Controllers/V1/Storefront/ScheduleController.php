@@ -151,6 +151,16 @@ class ScheduleController extends Controller
      */
     public function allSalesPrice()
     {
+        return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showSalesPrice()
+    {
         return DB::table('schedule_sales_price')->get();
     }
 
@@ -180,7 +190,7 @@ class ScheduleController extends Controller
             'expired_at' => $expiredAt
         ]);
 
-        return response()->json(['schedule_sales_price' => $this->allSalesPrice()]);
+        return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
     }
-    
+
 }

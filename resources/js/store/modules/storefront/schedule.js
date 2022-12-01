@@ -3,7 +3,7 @@ import apiSchedule from '@/api/storefront/schedule'
 // initial state
 const state = {
     schedules: [],
-    schedule_sales_prices: []
+    scheduleSalesPrice: []
 }
 
 // getters
@@ -39,7 +39,7 @@ const mutations = {
         state.schedules = response.data.schedules
     },
     setScheduleSalesPrice(state, response) {
-        state.schedule_sales_price = response.data.schedule_sales_price
+        state.scheduleSalesPrice = response.data.schedule_sales_price
     }
 };
 

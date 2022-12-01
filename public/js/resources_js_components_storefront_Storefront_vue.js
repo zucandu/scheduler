@@ -583,7 +583,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // initial state
 var state = {
   schedules: [],
-  schedule_sales_prices: []
+  scheduleSalesPrice: []
 };
 
 // getters
@@ -716,7 +716,7 @@ var mutations = {
     state.schedules = response.data.schedules;
   },
   setScheduleSalesPrice: function setScheduleSalesPrice(state, response) {
-    state.schedule_sales_price = response.data.schedule_sales_price;
+    state.scheduleSalesPrice = response.data.schedule_sales_price;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
