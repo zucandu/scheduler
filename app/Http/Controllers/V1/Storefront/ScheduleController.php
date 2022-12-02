@@ -243,6 +243,13 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
+        DB::table('products')->where('schedule_sale_price_id', $id)->update([
+            'sale_price' => NULL,
+            'started_at' => NULL,
+            'expired_at' => NULL,
+            'schedule_sale_price_id' => 0
+        ]);
+
         return DB::table('schedule_sales_price')->where('id', $id)->delete();
     }
 
