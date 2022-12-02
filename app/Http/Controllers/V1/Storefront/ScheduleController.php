@@ -176,6 +176,9 @@ class ScheduleController extends Controller
             'discount_amount' => 'required|min:1',
             'started_at' => 'required'
         ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
 
         $startedAt = Carbon::parse($request->input('started_at'))->format('Y-m-d H:i:s');
         $expiredAt = NULL;
@@ -203,6 +206,9 @@ class ScheduleController extends Controller
         $validator = Validator::make(['id' => $id], [
             'id' => 'required|exists:schedule_sales_price,id'
         ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
 
         return DB::table('schedule_sales_price')->where('id', $id)->delete();
     }
@@ -214,7 +220,23 @@ class ScheduleController extends Controller
      */
     public function addProducts(Request $request)
     {
-        var_dump($request->all());die;
+        $validator = Validator::make($request->all(), [
+            'sales_price_id' => 'required|exists:schedule_sales_price,id',
+            'product_ids' => 'required|array',
+            'product_ids.*' => 'integer'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        $productIds = $request->input('product_ids');
+        foreach($productIds as $id) {
+            DB::table('products')->where('id', $id)->update([
+                'started_at' => Carbon::now()
+            ]);
+        }
+
+        return true;
     }
 
 }

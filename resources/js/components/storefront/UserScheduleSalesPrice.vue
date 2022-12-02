@@ -151,7 +151,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="selected-filters">
+                    <div class="selected-filters mt-3">
                         <template v-if="Object.keys($route.query).length > 0">
                             <div class="d-inline-block mb-2" v-for="(qValue, qKey) in $route.query" :key="qKey">
                                 <router-link v-if="qValue" class="btn btn-light border me-2" :to="{ path: `/store/schedule-sales-price`, query: Object.assign({}, urlGetAllParams([qKey])) }">
@@ -338,7 +338,7 @@ export default {
         },
         AddProducts2Schedule() {
             this.formSales.product_ids = this.checkboxes
-            this.$store.dispatch('AddProducts2Schedule', this.formSales.product_ids)
+            this.$store.dispatch('AddProducts2Schedule', this.formSales)
         }
     },
     beforeRouteUpdate (to, from, next) {

@@ -150,7 +150,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     AddProducts2Schedule: function AddProducts2Schedule() {
       this.formSales.product_ids = this.checkboxes;
-      this.$store.dispatch('AddProducts2Schedule', this.formSales.product_ids);
+      this.$store.dispatch('AddProducts2Schedule', this.formSales);
     }
   },
   beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
@@ -428,7 +428,7 @@ var _hoisted_57 = {
   "class": "dropdown-menu dropdown-menu-end"
 };
 var _hoisted_58 = {
-  "class": "selected-filters"
+  "class": "selected-filters mt-3"
 };
 var _hoisted_59 = {
   key: 0,
