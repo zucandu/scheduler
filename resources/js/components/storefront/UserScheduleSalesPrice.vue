@@ -127,7 +127,6 @@
                                     <button :disabled="checkboxes.length === 0" class="btn btn-success w-100">Assign selected products to this schedule</button>
                                 </div>
                                 <div class="col-12 text-start">
-                                    {{ scheduleSalesPrice }}
                                     Selections:
                                     <span v-if="checkboxes.length === 0" class="ps-3 text-secondary">N/A</span>
                                     <span v-else class="ps-3">
@@ -451,7 +450,7 @@ export default {
             }
         },
         'formSales.sales_price_id': function(v) {
-            console.log(v)
+            this.checkboxes = this.scheduleSalesPrice.find(i => +i.id === +v).product_ids
         }
     }
 }

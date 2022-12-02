@@ -247,7 +247,10 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        DB::table('products')->where('schedule_sale_price_id', $id)->update([
+        DB::table('products')->where([
+            'schedule_sale_price_id' => $id,
+            'user_id' => auth()->user()->id
+        ])->update([
             'sale_price' => NULL,
             'started_at' => NULL,
             'expired_at' => NULL,
@@ -282,6 +285,19 @@ class ScheduleController extends Controller
         if($schedule->expired_at) {
             $expiredAt = Carbon::parse($schedule->expired_at)->format('Y-m-d');
         }
+
+        // Reset products if products does not exists in array
+        DB::table('products')->where([
+            'schedule_sale_price_id' => $request->input('sales_price_id'),
+            'user_id' => auth()->user()->id
+        ])->whereNotIn('id', $productIds)->update([
+            'sale_price' => NULL,
+            'started_at' => NULL,
+            'expired_at' => NULL,
+            'schedule_sale_price_id' => 0
+        ]);
+
+        // Add
         foreach($productIds as $id) {
             DB::table('products')->where('id', $id)->update([
                 'started_at' => $startedAt,
