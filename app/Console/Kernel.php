@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
+        /* $schedule->call(function () {
 			$schedules = DB::table('schedules')->get();
             foreach($schedules as $schedule) {
                 Http::accept('application/json')->get($schedule->url);
@@ -36,7 +36,19 @@ class Kernel extends ConsoleKernel
                     Log::error("Console: {$schedule->url} - cannot create a backup.");
                 }
             }
-		})->daily();
+		})->daily(); */
+        $schedule->call(function () {
+            
+            DB::table('products')->where([
+                ['started_at', '>=', Carbon::now()->format('Y-m-d')],
+                'push_status' => 0
+            ])->limit(20)->get();
+
+            // Http update product here
+
+
+		})->everyMinute();	
+
     }
 
     /**
