@@ -39,13 +39,33 @@ class Kernel extends ConsoleKernel
 		})->daily(); */
         $schedule->call(function () {
             
-            DB::table('products')->where([
+            $products = DB::table('products')->where([
                 ['started_at', '>=', Carbon::now()->format('Y-m-d')],
                 'push_status' => 0
             ])->limit(20)->get();
 
             // Http update product here
+            foreach($products as $product) {
 
+                $storeURL = DB::table('users')->where('id', $product->user_id)->value('store_url');
+                $token = Storage::disk('local')->get("/stores/{$storeURL}");
+                if(empty($token)) {
+                    Log::debug("Error #105011: Token not found!");
+                    return response()->json(['message' => 'Token not found!'], 422);
+                }
+                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-product", [
+                    'id' => $product->store_product_id,
+                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+
+                if($response->failed()) {
+                    if(isset($response->json()['message'])) {
+                        Log::debug("Error #105032: " . $response->json()['message']);
+                        return response()->json(['message' => $response->json()['message']], 422);
+                    }
+                }
+
+            }
 
 		})->everyMinute();	
 
