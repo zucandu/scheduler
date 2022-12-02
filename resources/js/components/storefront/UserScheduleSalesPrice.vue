@@ -46,7 +46,7 @@
                         </div>
                     </form>
                     <hr class="bg-secondary my-4">
-                    <table class="table table-striped table-hover">
+                    <table v-if="loadedSales" class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -75,6 +75,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <p v-else>There is no any the schedule sales price. Please set up one!</p>
                 </div>
             </div>
         </div>
@@ -126,28 +127,9 @@
                         </ul>
                     </div>
                     <div class="d-flex align-items-center my-lg-3">
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#schedule-modal">Set Schedule</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="schedule-modal" tabindex="-1" aria-labelledby="schedule-modal-label" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="schedule-modal-label">Modal title</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        This is a modal
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <select v-if="loadedSales" v-model="formSales.sales_price_id" class="form-select">
+                            <option :value="0">-Please select-</option>
+                        </select>
                     </div>
                     <div class="selected-filters">
                         <template v-if="Object.keys($route.query).length > 0">
@@ -229,7 +211,6 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal';
 import { DatePicker } from 'v-calendar';
 import { mapGetters, mapState } from 'vuex'
 export default {
@@ -240,6 +221,10 @@ export default {
             started_at: undefined,
             expired_at: undefined
         },
+        formSales: {
+            sales_price_id: 0
+        },
+
         masks: {
             input: 'YYYY-MM-DD',
         },
@@ -261,6 +246,7 @@ export default {
         resetAll: false,
         checkboxes: [],
         checkAll: false,
+        loadedSales: false
     }),
     components: { DatePicker },
     created() {
@@ -272,14 +258,8 @@ export default {
         this.resetAll = Object.keys(this.$route.query).filter(k => k !== 'page').length > 0
 
         // Load all schedule sales price
-        this.$store.dispatch('allScheduleSalesPrice')
+        this.$store.dispatch('allScheduleSalesPrice').finally(() => this.loadedSales = true)
 
-    },
-    mounted() {
-        const el = document.getElementById('schedule-modal')
-        this.scheduleModal = new Modal(el)
-        const _ = this
-        el.addEventListener('hidden.bs.modal', () => _.scheduleModal.hide())
     },
     methods: {
         
