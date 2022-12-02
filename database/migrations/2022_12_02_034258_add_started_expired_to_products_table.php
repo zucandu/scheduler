@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_sale_price_id')->default(0);
             $table->dateTime('started_at', $precision = 0)->nullable();
             $table->dateTime('expired_at', $precision = 0)->nullable();
+            $table->tinyInteger('push_status')->default(0);
         });
     }
 
