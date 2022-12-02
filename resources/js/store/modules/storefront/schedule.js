@@ -31,6 +31,9 @@ const actions = {
     async createScheduleSalesPrice({ commit }, formdata) {
         commit('setScheduleSalesPrice', await apiSchedule.createScheduleSalesPrice(formdata))
     },
+    async updateScheduleSalesPrice({ commit }, formdata) {
+        commit('setScheduleSalesPrice', await apiSchedule.updateScheduleSalesPrice(formdata))
+    },
     async deleteScheduleSalesPrice({ }, id) {
         await apiSchedule.deleteScheduleSalesPrice(id)
     },

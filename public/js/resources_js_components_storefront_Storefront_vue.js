@@ -173,6 +173,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
+  updateScheduleSalesPrice: function updateScheduleSalesPrice(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/update-sales-price", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
   deleteScheduleSalesPrice: function deleteScheduleSalesPrice(id) {
     return axios.get("/api/v1/storefront/user/schedule/delete/".concat(id), {
       headers: {
@@ -722,16 +729,21 @@ var actions = {
       }, _callee6);
     }))();
   },
-  deleteScheduleSalesPrice: function deleteScheduleSalesPrice(_ref7, id) {
+  updateScheduleSalesPrice: function updateScheduleSalesPrice(_ref7, formdata) {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+      var commit;
       return _regeneratorRuntime().wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
-              _objectDestructuringEmpty(_ref7);
-              _context7.next = 3;
-              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].deleteScheduleSalesPrice(id);
-            case 3:
+              commit = _ref7.commit;
+              _context7.t0 = commit;
+              _context7.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].updateScheduleSalesPrice(formdata);
+            case 4:
+              _context7.t1 = _context7.sent;
+              (0, _context7.t0)('setScheduleSalesPrice', _context7.t1);
+            case 6:
             case "end":
               return _context7.stop();
           }
@@ -739,7 +751,7 @@ var actions = {
       }, _callee7);
     }))();
   },
-  AddProducts2Schedule: function AddProducts2Schedule(_ref8, formdata) {
+  deleteScheduleSalesPrice: function deleteScheduleSalesPrice(_ref8, id) {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
       return _regeneratorRuntime().wrap(function _callee8$(_context8) {
         while (1) {
@@ -747,13 +759,30 @@ var actions = {
             case 0:
               _objectDestructuringEmpty(_ref8);
               _context8.next = 3;
-              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].AddProducts2Schedule(formdata);
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].deleteScheduleSalesPrice(id);
             case 3:
             case "end":
               return _context8.stop();
           }
         }
       }, _callee8);
+    }))();
+  },
+  AddProducts2Schedule: function AddProducts2Schedule(_ref9, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+      return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+        while (1) {
+          switch (_context9.prev = _context9.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref9);
+              _context9.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].AddProducts2Schedule(formdata);
+            case 3:
+            case "end":
+              return _context9.stop();
+          }
+        }
+      }, _callee9);
     }))();
   }
 };

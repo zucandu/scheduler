@@ -41,6 +41,13 @@ export default {
             }
         })
     },
+    updateScheduleSalesPrice(formdata) {
+        return axios.post(`/api/v1/storefront/user/schedule/update-sales-price`, formdata, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
     deleteScheduleSalesPrice(id) {
         return axios.get(`/api/v1/storefront/user/schedule/delete/${id}`, {
             headers: {

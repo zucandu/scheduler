@@ -135,7 +135,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     createScheduleSalesPrice: function createScheduleSalesPrice() {
       var _this4 = this;
-      this.$store.dispatch('createScheduleSalesPrice', this.formdata)["catch"](function (error) {
+      this.$store.dispatch('createScheduleSalesPrice', this.formdata).then(function () {
+        _this4.$store.commit('setAlert', {
+          'color': 'success',
+          'message': "Created!"
+        });
+      })["catch"](function (error) {
         _this4.$store.commit('setAlert', {
           'color': 'danger',
           'message': error.response.data.message
@@ -146,7 +151,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     updateScheduleSalesPrice: function updateScheduleSalesPrice() {
       var _this5 = this;
-      this.$store.dispatch('updateScheduleSalesPrice', this.formdata)["catch"](function (error) {
+      this.$store.dispatch('updateScheduleSalesPrice', this.formdata).then(function () {
+        _this5.$store.commit('setAlert', {
+          'color': 'success',
+          'message': "Updated!"
+        });
+      })["catch"](function (error) {
         _this5.$store.commit('setAlert', {
           'color': 'danger',
           'message': error.response.data.message
@@ -160,7 +170,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       var wConfirm = confirm("Are you sure you want to delete this sales price?");
       if (wConfirm) {
         this.$store.dispatch('deleteScheduleSalesPrice', id).then(function () {
-          return _this6.$store.dispatch('allScheduleSalesPrice');
+          _this6.$store.dispatch('allScheduleSalesPrice');
+          _this6.$store.commit('setAlert', {
+            'color': 'success',
+            'message': "Removed!"
+          });
         });
       }
     },

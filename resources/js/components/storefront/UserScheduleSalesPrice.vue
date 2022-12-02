@@ -339,6 +339,12 @@ export default {
         },
         createScheduleSalesPrice() {
             this.$store.dispatch('createScheduleSalesPrice', this.formdata)
+                .then(() => {
+                    this.$store.commit('setAlert', {
+                        'color': 'success', 
+                        'message': "Created!"
+                    })
+                })
                 .catch(error => {
                     this.$store.commit('setAlert', {
                         'color': 'danger', 
@@ -349,6 +355,12 @@ export default {
         },
         updateScheduleSalesPrice() {
             this.$store.dispatch('updateScheduleSalesPrice', this.formdata)
+                .then(() => {
+                    this.$store.commit('setAlert', {
+                        'color': 'success', 
+                        'message': "Updated!"
+                    })
+                })
                 .catch(error => {
                     this.$store.commit('setAlert', {
                         'color': 'danger', 
@@ -360,7 +372,14 @@ export default {
         deleteScheduleSalesPrice(id) {
             const wConfirm = confirm(`Are you sure you want to delete this sales price?`);
             if(wConfirm) {
-                this.$store.dispatch('deleteScheduleSalesPrice', id).then(() => this.$store.dispatch('allScheduleSalesPrice'))
+                this.$store.dispatch('deleteScheduleSalesPrice', id)
+                    .then(() => {
+                        this.$store.dispatch('allScheduleSalesPrice')
+                        this.$store.commit('setAlert', {
+                            'color': 'success', 
+                            'message': "Removed!"
+                        })
+                    })
             }
         },
         resetForm() {

@@ -201,6 +201,39 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function updateSalesPrice(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:schedule_sales_price,id',
+            'name' => 'required',
+            'discount_amount' => 'required|min:1',
+            'started_at' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        $startedAt = Carbon::parse($request->input('started_at'))->format('Y-m-d H:i:s');
+        $expiredAt = NULL;
+        if($request->input('expired_at')) {
+            $expiredAt = Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i:s');;
+        }
+
+        DB::table('schedule_sales_price')->where('id', $request->input('id'))->update([
+            'name' => $request->input('name'),
+            'discount_amount' => $request->input('discount_amount'),
+            'started_at' => $startedAt,
+            'expired_at' => $expiredAt
+        ]);
+
+        return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroySalesPrice($id)
     {
         $validator = Validator::make(['id' => $id], [
