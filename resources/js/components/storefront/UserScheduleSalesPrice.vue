@@ -11,13 +11,13 @@
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
-                                <input v-model="formdata.name" type="text" class="form-control" placeholder="E.g. Big Summer Sale">
+                                <input v-model="formdata.name" type="text" class="form-control" placeholder="E.g. Big Summer Sale" required>
                             </div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-4 col-12 mb-3">
                                 <label class="form-label">Discount Amount</label>
-                                <input v-model="formdata.discount_amount" type="text" class="form-control" placeholder="E.g. 10% of 10">
+                                <input v-model="formdata.discount_amount" type="text" class="form-control" placeholder="E.g. 10% of 10" required>
                             </div>
                             <div class="col-md-4 col-12 mb-3">
                                 <label class="form-label">Start at</label>
@@ -37,6 +37,7 @@
                             </div>
                         </div>
                         <div class="text-end">
+                            <button v-if="formdata.id" @click.stop="resetForm" type="button" class="btn btn-link me-3">Create a new schedule?</button>
                             <button type="submit" class="btn btn-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
@@ -337,7 +338,24 @@ export default {
             }
         },
         createScheduleSalesPrice() {
-            this.$store.dispatch('createScheduleSalesPrice', this.formdata).finally(() => this.resetForm())
+            this.$store.dispatch('createScheduleSalesPrice', this.formdata)
+                .catch(error => {
+                    this.$store.commit('setAlert', {
+                        'color': 'danger', 
+                        'message': error.response.data.message
+                    })
+                })
+                .finally(() => this.resetForm())
+        },
+        updateScheduleSalesPrice() {
+            this.$store.dispatch('updateScheduleSalesPrice', this.formdata)
+                .catch(error => {
+                    this.$store.commit('setAlert', {
+                        'color': 'danger', 
+                        'message': error.response.data.message
+                    })
+                })
+                .finally(() => this.resetForm())
         },
         deleteScheduleSalesPrice(id) {
             const wConfirm = confirm(`Are you sure you want to delete this sales price?`);
@@ -355,7 +373,12 @@ export default {
         },
         AddProducts2Schedule() {
             this.formSales.product_ids = this.checkboxes
-            this.$store.dispatch('AddProducts2Schedule', this.formSales)
+            this.$store.dispatch('AddProducts2Schedule', this.formSales).catch(error => {
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
+            })
         },
         editScheduleSalesPrice(item) {
             this.formdata = { ...item }
