@@ -161,7 +161,11 @@ class ScheduleController extends Controller
      */
     public function showSalesPrice()
     {
-        return DB::table('schedule_sales_price')->get();
+        $schedules = DB::table('schedule_sales_price')->get();
+        $schedules->map(function($item) {
+            $item->product_ids = DB::table('products')->where('schedule_sale_price_id', $item->id)->pluck('id')->toArray();
+        });
+        return $schedules;
     }
 
     /**

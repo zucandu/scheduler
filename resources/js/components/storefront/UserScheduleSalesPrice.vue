@@ -127,6 +127,7 @@
                                     <button :disabled="checkboxes.length === 0" class="btn btn-success w-100">Assign selected products to this schedule</button>
                                 </div>
                                 <div class="col-12 text-start">
+                                    {{ scheduleSalesPrice }}
                                     Selections:
                                     <span v-if="checkboxes.length === 0" class="ps-3 text-secondary">N/A</span>
                                     <span v-else class="ps-3">
@@ -392,12 +393,19 @@ export default {
         },
         AddProducts2Schedule() {
             this.formSales.product_ids = this.checkboxes
-            this.$store.dispatch('AddProducts2Schedule', this.formSales).catch(error => {
-                this.$store.commit('setAlert', {
-                    'color': 'danger', 
-                    'message': error.response.data.message
+            this.$store.dispatch('AddProducts2Schedule', this.formSales)
+                .then(() => {
+                    this.$store.commit('setAlert', {
+                        'color': 'success', 
+                        'message': "Assigned!"
+                    })
                 })
-            })
+                .catch(error => {
+                    this.$store.commit('setAlert', {
+                        'color': 'danger', 
+                        'message': error.response.data.message
+                    })
+                })
         },
         editScheduleSalesPrice(item) {
             this.formdata = { ...item }
@@ -441,6 +449,9 @@ export default {
             } else if(v.length === this.products.length) {
                 this.checkAll = true
             }
+        },
+        'formSales.sales_price_id': function(v) {
+            console.log(v)
         }
     }
 }
