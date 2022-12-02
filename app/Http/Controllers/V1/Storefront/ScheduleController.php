@@ -230,9 +230,19 @@ class ScheduleController extends Controller
         }
 
         $productIds = $request->input('product_ids');
+        $schedule = DB::table('schedule_sales_price')->where('id', $request->input('sales_price_id'))->first();
+        $startedAt = $expiredAt = NULL;
+        if($schedule->started_at) {
+            $startedAt = Carbon::parse($schedule->started_at)->format('Y-m-d');
+        }
+        if($schedule->expired_at) {
+            $expiredAt = Carbon::parse($schedule->expired_at)->format('Y-m-d');
+        }
         foreach($productIds as $id) {
             DB::table('products')->where('id', $id)->update([
-                'started_at' => Carbon::now()
+                'started_at' => $startedAt,
+                'expired_at' => $expiredAt,
+                'schedule_sale_price_id' => $request->input('sales_price_id')
             ]);
         }
 

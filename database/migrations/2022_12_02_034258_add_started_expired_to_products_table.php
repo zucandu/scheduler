@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->unsignedBigInteger('schedule_sale_price_id')->default(0);
             $table->dateTime('started_at', $precision = 0)->nullable();
             $table->dateTime('expired_at', $precision = 0)->nullable();
         });
@@ -27,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['started_at', 'started_at']);
+            $table->dropColumn(['started_at', 'expired_at', 'schedule_sale_price_id']);
         });
     }
 };

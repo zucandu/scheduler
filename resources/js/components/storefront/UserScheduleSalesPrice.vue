@@ -7,7 +7,7 @@
             </div>
             <div class="col-lg-9 col-12 mb-3">
                 <div class="card card-body">
-                    <form @submit.prevent="createScheduleSalesPrice">
+                    <form @submit.prevent="handScheduleForm">
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
@@ -46,36 +46,46 @@
                         </div>
                     </form>
                     <hr class="bg-secondary my-4">
-                    <table v-if="loadedSales" class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td>Discount</td>
-                                <td>Started at</td>
-                                <td>Expired at</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="sp in scheduleSalesPrice" :key="sp.id">
-                                <td>{{ sp.id }}</td>
-                                <td>{{ sp.name }}</td>
-                                <td>{{ sp.discount_amount }}</td>
-                                <td>{{ sp.started_at }}</td>
-                                <td>{{ sp.expired_at }}</td>
-                                <td class="text-end">
-                                    <button @click="deleteScheduleSalesPrice(sp.id)" class="btn btn-sm btn-danger text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p v-else>There is no any the schedule sales price. Please set up one!</p>
+                    <div v-if="loadedSales">
+                        <table v-if="scheduleSalesPrice.length > 0" class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Name</td>
+                                    <td>Discount</td>
+                                    <td>Started at</td>
+                                    <td>Expired at</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="sp in scheduleSalesPrice" :key="sp.id">
+                                    <td>{{ sp.id }}</td>
+                                    <td>{{ sp.name }}</td>
+                                    <td>{{ sp.discount_amount }}</td>
+                                    <td>{{ sp.started_at }}</td>
+                                    <td>{{ sp.expired_at }}</td>
+                                    <td class="text-end">
+                                        <button @click="editScheduleSalesPrice(sp)" class="btn btn-sm btn-primary me-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                            </svg>
+                                        </button>
+                                        <button @click="deleteScheduleSalesPrice(sp.id)" class="btn btn-sm btn-danger text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div v-else>There is no any schedule.</div>
+                    </div>
+                    <div v-else class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,6 +246,7 @@ import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
         formdata: {
+            id: undefined,
             name: undefined,
             discount_amount: undefined,
             started_at: undefined,
@@ -283,7 +294,6 @@ export default {
 
     },
     methods: {
-        
         queryListing(params) {
 
             this.loading = true
@@ -319,6 +329,13 @@ export default {
                 })
             })
         },
+        handScheduleForm() {
+            if(!this.formdata.id) {
+                this.createScheduleSalesPrice()
+            } else {
+                this.updateScheduleSalesPrice()
+            }
+        },
         createScheduleSalesPrice() {
             this.$store.dispatch('createScheduleSalesPrice', this.formdata).finally(() => this.resetForm())
         },
@@ -339,6 +356,9 @@ export default {
         AddProducts2Schedule() {
             this.formSales.product_ids = this.checkboxes
             this.$store.dispatch('AddProducts2Schedule', this.formSales)
+        },
+        editScheduleSalesPrice(item) {
+            this.formdata = { ...item }
         }
     },
     beforeRouteUpdate (to, from, next) {
