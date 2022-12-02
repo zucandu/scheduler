@@ -126,10 +126,19 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="d-flex align-items-center my-lg-3">
-                        <select v-if="loadedSales" v-model="formSales.sales_price_id" class="form-select">
-                            <option :value="0">-Please select-</option>
-                        </select>
+                    <div class="text-end my-lg-3">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <select v-if="loadedSales" v-model="formSales.sales_price_id" class="form-select">
+                                    <option :value="0">-Please select-</option>
+                                    <option v-for="sp in scheduleSalesPrice" :key="sp.id" :value="sp.id">{{ sp.name }}</option>
+                                </select>
+                                <select v-else disabled class="form-select">
+                                    <option>Loading...</option>
+                                </select>
+                            </div>
+                            <div class="col-3"><button class="btn btn-success w-100">Assign selected products to this schedule</button></div>
+                        </div>
                     </div>
                     <div class="selected-filters">
                         <template v-if="Object.keys($route.query).length > 0">
