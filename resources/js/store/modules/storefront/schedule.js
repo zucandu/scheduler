@@ -34,6 +34,9 @@ const actions = {
     async deleteScheduleSalesPrice({ }, id) {
         await apiSchedule.deleteScheduleSalesPrice(id)
     },
+    async AddProducts2Schedule({ }, formdata) {
+        await apiSchedule.AddProducts2Schedule(formdata)
+    },
 }
 
 // mutations is often used to filter results

@@ -193,6 +193,11 @@ class ScheduleController extends Controller
         return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroySalesPrice($id)
     {
         $validator = Validator::make(['id' => $id], [
@@ -200,6 +205,16 @@ class ScheduleController extends Controller
         ]);
 
         return DB::table('schedule_sales_price')->where('id', $id)->delete();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addProducts(Request $request)
+    {
+        var_dump($request->all());die;
     }
 
 }

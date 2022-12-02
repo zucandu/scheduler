@@ -100,6 +100,31 @@
                     </div>
                 </div>
                 <div class="p-3 bg-white border">
+                    <div class="text-end my-lg-3">
+                        <form @submit.prevent="AddProducts2Schedule">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-7">
+                                    <select v-if="loadedSales" v-model="formSales.sales_price_id" class="form-select">
+                                        <option :value="0">-Please select-</option>
+                                        <option v-for="sp in scheduleSalesPrice" :key="sp.id" :value="sp.id">{{ sp.name }}</option>
+                                    </select>
+                                    <select v-else disabled class="form-select">
+                                        <option>Loading...</option>
+                                    </select>
+                                </div>
+                                <div class="col-5">
+                                    <button :disabled="checkboxes.length === 0" class="btn btn-success w-100">Assign selected products to this schedule</button>
+                                </div>
+                                <div class="col-12 text-start">
+                                    Selections:
+                                    <span v-if="checkboxes.length === 0" class="ps-3 text-secondary">N/A</span>
+                                    <span v-else class="ps-3">
+                                        {{ checkboxes }}
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="input-group">
                         <input v-model="keyword" type="search" class="form-control rounded-0" placeholder="Find your product by name, SKU, GTIN,..">
                         <button class="btn dropdown-toggle border-grey" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,20 +150,6 @@
                                 <router-link class="dropdown-item" :to="{ path: `/store/schedule-sales-price`, query: Object.assign({}, urlGetAllParams(['sort', 'page']), { sort: sort.id } ) }">{{ sort.text }}</router-link>
                             </li>
                         </ul>
-                    </div>
-                    <div class="text-end my-lg-3">
-                        <div class="row align-items-center">
-                            <div class="col-9">
-                                <select v-if="loadedSales" v-model="formSales.sales_price_id" class="form-select">
-                                    <option :value="0">-Please select-</option>
-                                    <option v-for="sp in scheduleSalesPrice" :key="sp.id" :value="sp.id">{{ sp.name }}</option>
-                                </select>
-                                <select v-else disabled class="form-select">
-                                    <option>Loading...</option>
-                                </select>
-                            </div>
-                            <div class="col-3"><button class="btn btn-success w-100">Assign selected products to this schedule</button></div>
-                        </div>
                     </div>
                     <div class="selected-filters">
                         <template v-if="Object.keys($route.query).length > 0">
@@ -231,7 +242,8 @@ export default {
             expired_at: undefined
         },
         formSales: {
-            sales_price_id: 0
+            sales_price_id: 0,
+            product_ids: []
         },
 
         masks: {
@@ -323,6 +335,10 @@ export default {
                 started_at: undefined,
                 expired_at: undefined
             }
+        },
+        AddProducts2Schedule() {
+            this.formSales.product_ids = this.checkboxes
+            this.$store.dispatch('AddProducts2Schedule', this.formSales.product_ids)
         }
     },
     beforeRouteUpdate (to, from, next) {

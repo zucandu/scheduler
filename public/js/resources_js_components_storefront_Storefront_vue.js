@@ -179,6 +179,13 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }
     });
+  },
+  AddProducts2Schedule: function AddProducts2Schedule(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/add-products", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
   }
 });
 
@@ -730,6 +737,23 @@ var actions = {
           }
         }
       }, _callee7);
+    }))();
+  },
+  AddProducts2Schedule: function AddProducts2Schedule(_ref8, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+      return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+        while (1) {
+          switch (_context8.prev = _context8.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref8);
+              _context8.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_0__["default"].AddProducts2Schedule(formdata);
+            case 3:
+            case "end":
+              return _context8.stop();
+          }
+        }
+      }, _callee8);
     }))();
   }
 };

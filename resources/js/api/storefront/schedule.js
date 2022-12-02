@@ -48,5 +48,12 @@ export default {
             }
         })
     },
+    AddProducts2Schedule(formdata) {
+        return axios.post(`/api/v1/storefront/user/schedule/add-products`, formdata, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
 
 }
