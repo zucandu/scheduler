@@ -55,6 +55,7 @@ class Kernel extends ConsoleKernel
                 }
                 $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-product", [
                     'id' => $product->store_product_id,
+                    'sale_price' => $product->sale_price,
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 

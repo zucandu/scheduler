@@ -299,7 +299,21 @@ class ScheduleController extends Controller
 
         // Add
         foreach($productIds as $id) {
+
+            $productQuery = DB::table('products')->where('id', $id)->first();
+            $discountAmount = $schedule->discount_amount;
+            if(strpos($discountAmount, '%') !== false) {
+                $discountAmount = str_replace('%', '', $discountAmount);
+                $salePrice = $productQuery->price - $productQuery->price*$discountAmount/100;
+            } else {
+                $salePrice = $productQuery->price - $discountAmount;
+                if($salePrice < 0) {
+                    $salePrice = 0;
+                }
+            }
+
             DB::table('products')->where('id', $id)->update([
+                'sale_price' => $salePrice,
                 'started_at' => $startedAt,
                 'expired_at' => $expiredAt,
                 'schedule_sale_price_id' => $request->input('sales_price_id')
