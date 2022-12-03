@@ -71,7 +71,7 @@ class ProductController extends Controller
             return response()->json(['message' => 'Token not found!'], 422);
         }
 
-        $response = Http::withToken($token)->accept('application/json')->get("https://{$storeUrl}/api/v1/app/products", [
+        $response = Http::withToken($token)->accept('application/json')->get("http://localhost:8001/api/v1/app/products", [
             'page' => $page,
 			'number_of_query_limit' => 10
         ]);

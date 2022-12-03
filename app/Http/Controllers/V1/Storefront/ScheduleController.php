@@ -232,7 +232,7 @@ class ScheduleController extends Controller
         ]);
 
         // Update products
-        $this->_addProductsToSalesPrice($request->input('id'), DB:table('products')->where('schedule_sale_price_id', $request->input('id'))->pluck('id')->toArray());
+        $this->_addProductsToSalesPrice($request->input('id'), DB::table('products')->where('schedule_sale_price_id', $request->input('id'))->pluck('id')->toArray());
          
 
         return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
