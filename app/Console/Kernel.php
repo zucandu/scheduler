@@ -72,8 +72,7 @@ class Kernel extends ConsoleKernel
              * REMOVE SALE PRODUCTS WHEN EXPIRED
              */
             $products = DB::table('products')->where([
-                ['expired_at', '<', Carbon::now()->format('Y-m-d')],
-                'push_status' => 1
+                ['expired_at', '<', Carbon::now()->format('Y-m-d')]
             ])->limit(20)->get();
 
             // Http update product here
