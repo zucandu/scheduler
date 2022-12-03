@@ -161,7 +161,7 @@ class ScheduleController extends Controller
      */
     public function showSalesPrice()
     {
-        $schedules = DB::table('schedule_sales_price')->get();
+        $schedules = DB::table('schedule_sales_price')->where('user_id', auth()->user()->id)->get();
         $schedules->map(function($item) {
             $item->product_ids = DB::table('products')->where('schedule_sale_price_id', $item->id)->pluck('id')->toArray();
         });
@@ -191,6 +191,7 @@ class ScheduleController extends Controller
         }
 
         DB::table('schedule_sales_price')->insert([
+            'user_id' => auth()->user()->id,
             'name' => $request->input('name'),
             'discount_amount' => $request->input('discount_amount'),
             'started_at' => $startedAt,
@@ -223,7 +224,7 @@ class ScheduleController extends Controller
             $expiredAt = Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i:s');;
         }
 
-        DB::table('schedule_sales_price')->where('id', $request->input('id'))->update([
+        DB::table('schedule_sales_price')->where(['id' => $request->input('id'), 'user_id' => auth()->user()->id])->update([
             'name' => $request->input('name'),
             'discount_amount' => $request->input('discount_amount'),
             'started_at' => $startedAt,
