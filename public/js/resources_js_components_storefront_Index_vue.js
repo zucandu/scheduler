@@ -23,7 +23,7 @@ var _hoisted_3 = {
   "class": "row flex-nowrap justify-content-between align-items-center"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-4 pt-1\"><a class=\"btn btn-sm btn-link px-0 text-decoration-none\" href=\"https://zucandu.com\" target=\"_blank\"> Zucandu.com <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-box-arrow-in-up-right\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z\"></path><path fill-rule=\"evenodd\" d=\"M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z\"></path></svg></a></div><div class=\"col-4 text-center\"><a class=\"blog-header-logo text-dark text-decoration-none\" href=\"#\"><img class=\"mx-5\" src=\"/storage/freegifts.svg\" width=\"60\" alt=\"Zucandu Free Gifts\"></a></div>", 2);
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-4 pt-1\"><a class=\"btn btn-sm btn-link px-0 text-decoration-none\" href=\"https://zucandu.com\" target=\"_blank\"> Zucandu.com <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-box-arrow-in-up-right\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z\"></path><path fill-rule=\"evenodd\" d=\"M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z\"></path></svg></a></div><div class=\"col-4 text-center\"><a class=\"blog-header-logo text-dark text-decoration-none\" href=\"#\"><img class=\"mx-5\" src=\"/storage/freegifts.svg\" width=\"60\" alt=\"Zucandu Scheduler\"></a></div>", 2);
 
 var _hoisted_6 = {
   "class": "col-4 d-flex justify-content-end align-items-center"
@@ -109,12 +109,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Index_vue_vue_type_template_id_4d6bba96__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=4d6bba96 */ "./resources/js/components/storefront/Index.vue?vue&type=template&id=4d6bba96");
-/* harmony import */ var E_xampp_htdocs_projects_zucandu_freegifts_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var E_xampp_htdocs_projects_zucandu_scheduler_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 const script = {}
 
 ;
-const __exports__ = /*#__PURE__*/(0,E_xampp_htdocs_projects_zucandu_freegifts_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Index_vue_vue_type_template_id_4d6bba96__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/storefront/Index.vue"]])
+const __exports__ = /*#__PURE__*/(0,E_xampp_htdocs_projects_zucandu_scheduler_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Index_vue_vue_type_template_id_4d6bba96__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/storefront/Index.vue"]])
 /* hot reload */
 if (false) {}
 

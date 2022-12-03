@@ -34,7 +34,7 @@ class LoginCredentials extends Mailable
      */
     public function build()
     {
-        return $this->subject('Welcome to Zucandu Free Gifts')
+        return $this->subject('Welcome to Zucandu Scheduler')
                     ->from(config('mail.from.address'), config('mail.from.name'))
                     ->view("emails.login_credentials");
     }

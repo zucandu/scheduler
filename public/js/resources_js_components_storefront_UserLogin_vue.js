@@ -89,7 +89,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "mx-5",
   src: "/storage/freegifts.svg",
   width: "60",
-  alt: "Zucandu Free Gifts"
+  alt: "Zucandu Scheduler"
 }, null, -1
 /* HOISTED */
 );
@@ -237,7 +237,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/store/dashboard"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Zucandu Free Gifts Dashboard")];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Zucandu Scheduler Dashboard")];
     }),
     _: 1
     /* STABLE */
@@ -268,13 +268,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _UserLogin_vue_vue_type_template_id_24f89fbc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserLogin.vue?vue&type=template&id=24f89fbc */ "./resources/js/components/storefront/UserLogin.vue?vue&type=template&id=24f89fbc");
 /* harmony import */ var _UserLogin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserLogin.vue?vue&type=script&lang=js */ "./resources/js/components/storefront/UserLogin.vue?vue&type=script&lang=js");
-/* harmony import */ var E_xampp_htdocs_projects_zucandu_freegifts_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var E_xampp_htdocs_projects_zucandu_scheduler_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,E_xampp_htdocs_projects_zucandu_freegifts_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_UserLogin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_UserLogin_vue_vue_type_template_id_24f89fbc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/storefront/UserLogin.vue"]])
+const __exports__ = /*#__PURE__*/(0,E_xampp_htdocs_projects_zucandu_scheduler_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_UserLogin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_UserLogin_vue_vue_type_template_id_24f89fbc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/storefront/UserLogin.vue"]])
 /* hot reload */
 if (false) {}
 
