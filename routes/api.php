@@ -32,20 +32,23 @@ Route::group(['prefix' => 'v1'], function() {
             Route::post('update-profile', 'V1\Storefront\UserController@update');
             Route::get('products', 'V1\Storefront\ProductController@products');
             Route::get('download-products', 'V1\Storefront\ProductController@downloadProducts');
-            Route::group(['prefix' => 'promotion'], function() {
-                Route::get('all', 'V1\Storefront\PromotionController@index');
-                Route::post('create', 'V1\Storefront\PromotionController@store');
-                Route::post('update', 'V1\Storefront\PromotionController@update');
-                Route::get('delete/{id}', 'V1\Storefront\PromotionController@destroy');
-                Route::get('{id}', 'V1\Storefront\PromotionController@show');
-                Route::post('add-products', 'V1\Storefront\PromotionController@create');
+            Route::group(['prefix' => 'cron'], function() {
+                Route::get('all', 'V1\Storefront\ScheduleController@index');
+                Route::post('create', 'V1\Storefront\ScheduleController@store');
+                Route::post('update', 'V1\Storefront\ScheduleController@update');
+                Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroy');
+            });
+            Route::group(['prefix' => 'schedule'], function() {
+                Route::get('all-sales-price', 'V1\Storefront\ScheduleController@allSalesPrice');
+                Route::post('create-sales-price', 'V1\Storefront\ScheduleController@createSalesPrice');
+                Route::post('update-sales-price', 'V1\Storefront\ScheduleController@updateSalesPrice');
+                Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroySalesPrice');
+                Route::post('add-products', 'V1\Storefront\ScheduleController@addProducts');
             });
         });
 
+        Route::get('auto-backup', 'V1\Storefront\ScheduleController@autoBackup');
+
     });
-
-    Route::post('add-product-to-cart', 'V1\Storefront\ProductController@addProductToCart');
-    Route::post('remove-cart-product', 'V1\Storefront\ProductController@removeCartProduct');
-
     
 });
