@@ -252,19 +252,14 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
+        // Update products
+        $this->_addProductsToSalesPrice($id, DB::table('products')->where('schedule_sale_price_id', $id)->pluck('id')->toArray());
+
+        // Remove by updating the deleted_status = 1
         DB::table('schedule_sales_price')->where(['id' => $id, 'user_id' => auth()->user()->id])->update([
             'deleted_status' => 1,
-            'expired_at' => Carbon::now()->format('Y-m-d')
+            'expired_at' => Carbon::now()->subDay()->format('Y-m-d')
         ]);
-        /* DB::table('products')->where([
-            'schedule_sale_price_id' => $id,
-            'user_id' => auth()->user()->id
-        ])->update([
-            'sale_price' => NULL,
-            'started_at' => NULL,
-            'expired_at' => NULL,
-            'schedule_sale_price_id' => 0
-        ]); */
 
         return true;
     }
