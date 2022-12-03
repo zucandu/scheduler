@@ -14,8 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'client_id' => 'XELYE26ursFkW124HYyvURVu0WfGsYB2USLEmMkmZu0Pt3QP',
-    'client_secret' => 'rqrGXFvQaM29DIiB8oAPcUnwGxpPYArsls2cFp4hCxjhwd3m',
+    'client_id' => '6bcxujob6FRlKnvk1eZbyD2ELmE7gwpjvTOnjZaKm8MSUq1C',
+    'client_secret' => 'ofBBk6hJ9qrDPq7pon0U0oDdGkxve71dr6ODYl99MAqtzZ9P',
 
     /*
     |--------------------------------------------------------------------------

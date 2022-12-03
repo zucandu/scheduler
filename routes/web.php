@@ -92,12 +92,7 @@ Route::get('/authorize', function(Request $request) {
                 'password' => $password,
             ]));
 
-            // Add webhooks here
-            $appUrl = config('app.url');
-            Http::withToken($jsonData['access_token'])->post("https://{$storeUrl}/api/v1/app/webhook/create", [
-                'url' => "{$appUrl}/api/v1/add-product-to-cart",
-                'event' => 'cart.add_product_to_cart',
-            ]);
+            
 
             return redirect("/login?msg=We just sent you an email with your login details.");
         }
