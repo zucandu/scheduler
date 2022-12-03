@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Carbon\Carbon;
 use Storage;
 use Http;
+use Log;
 use DB;
 
 class Kernel extends ConsoleKernel

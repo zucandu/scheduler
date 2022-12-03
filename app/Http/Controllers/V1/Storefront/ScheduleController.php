@@ -231,6 +231,10 @@ class ScheduleController extends Controller
             'expired_at' => $expiredAt
         ]);
 
+        // Update products
+        $this->_addProductsToSalesPrice($request->input('id'), DB:table('products')->where('schedule_sale_price_id', $request->input('id'))->pluck('id')->toArray());
+         
+
         return response()->json(['schedule_sales_price' => $this->showSalesPrice()]);
     }
 
@@ -277,8 +281,19 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        $productIds = $request->input('product_ids');
-        $schedule = DB::table('schedule_sales_price')->where('id', $request->input('sales_price_id'))->first();
+        // Update products
+        $this->_addProductsToSalesPrice($request->input('sales_price_id'), $request->input('product_ids'));
+
+        return true;
+    }
+
+    /**
+     * Add Product to sales price
+     */
+    public function _addProductsToSalesPrice($salesPriceId, $productIds)
+    {
+
+        $schedule = DB::table('schedule_sales_price')->where('id', $salesPriceId)->first();
         $startedAt = $expiredAt = NULL;
         if($schedule->started_at) {
             $startedAt = Carbon::parse($schedule->started_at)->format('Y-m-d');
@@ -289,7 +304,7 @@ class ScheduleController extends Controller
 
         // Reset products if products does not exists in array
         DB::table('products')->where([
-            'schedule_sale_price_id' => $request->input('sales_price_id'),
+            'schedule_sale_price_id' => $salesPriceId,
             'user_id' => auth()->user()->id
         ])->whereNotIn('id', $productIds)->update([
             'sale_price' => NULL,
@@ -317,11 +332,10 @@ class ScheduleController extends Controller
                 'sale_price' => $salePrice,
                 'started_at' => $startedAt,
                 'expired_at' => $expiredAt,
-                'schedule_sale_price_id' => $request->input('sales_price_id')
+                'schedule_sale_price_id' => $salesPriceId,
+                'push_status' => 0
             ]);
         }
-
-        return true;
     }
 
 }
