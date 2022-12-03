@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('schedule_sales_price', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('discount_amount');
             $table->dateTime('started_at', $precision = 0)->nullable();
             $table->dateTime('expired_at', $precision = 0)->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
         });
     }
 
