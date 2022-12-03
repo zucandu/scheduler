@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="d-flex justify-content-center py-4">
                         <router-link to="/" class="logo">
-                            <img class="mx-5" src="/storage/freegifts.svg" width="60" alt="Zucandu Scheduler">
+                            <img class="mx-5" src="/storage/scheduler.svg" width="60" alt="Zucandu Scheduler">
                         </router-link>
                     </div><!-- End Logo -->
                     

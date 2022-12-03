@@ -33,3 +33,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+
+// https://vcalendar.io/vue-3.html
+@import "~v-calendar/dist/style.css";
+</style>

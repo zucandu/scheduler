@@ -13,7 +13,7 @@
             </div>
             <div class="col-4 text-center">
                 <router-link to="/" class="logo">
-                    <img class="mx-5" src="/storage/freegifts.svg" width="60" alt="Zucandu Scheduler">
+                    <img class="mx-5" src="/storage/scheduler.svg" width="60" alt="Zucandu Scheduler">
                 </router-link>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
@@ -31,12 +31,12 @@
                 <!-- End Title -->
 
                 <!-- Text -->
-                <p> Zucandu ShipStation Integration ("us", "we", or "our") operates the https://freegifts.zucandu.com  website (the "Service"). </p>
+                <p> Zucandu Scheduler Integration ("us", "we", or "our") operates the https://scheduler.zucandu.com  website (the "Service"). </p>
 
                 <p> This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. </p>
 
                 <p> We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.
-                    Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://freegifts.zucandu.com 
+                    Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://scheduler.zucandu.com 
                 </p>
                 <!-- End Text -->
             </div>
@@ -48,7 +48,7 @@
                 <ul>
                     <li>
                         <p><strong>Service</strong></p>
-                        <p>Service is the https://freegifts.zucandu.com  website operated by Zucandu ShipStation Integration</p>
+                        <p>Service is the https://scheduler.zucandu.com  website operated by Zucandu Scheduler Integration</p>
                     </li>
                     <li>
                         <p><strong>Personal Data</strong></p>
@@ -119,7 +119,7 @@
                 <div class="mb-3">
                     <h3 class="h5 text-primary font-weight-semi-bold">Use of Data</h3>
                 </div>
-                <p>Zucandu ShipStation Integration uses the collected data for various purposes:</p>
+                <p>Zucandu Scheduler Integration uses the collected data for various purposes:</p>
                 <ul>
                     <li><p>To provide and maintain our Service</p></li>
                     <li><p>To notify you about changes to our Service</p></li>
@@ -135,8 +135,8 @@
                 <div class="mb-3">
                     <h3 class="h5 text-primary font-weight-semi-bold">Legal Basis for Processing Personal Data Under General Data Protection Regulation (GDPR)</h3>
                 </div>
-                <p>If you are from the European Economic Area (EEA), Zucandu ShipStation Integration legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Data we collect and the specific context in which we collect it.</p>
-                <p>Zucandu ShipStation Integration may process your Personal Data because:</p>
+                <p>If you are from the European Economic Area (EEA), Zucandu Scheduler Integration legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Data we collect and the specific context in which we collect it.</p>
+                <p>Zucandu Scheduler Integration may process your Personal Data because:</p>
                 <ul>
                     <li><p>We need to perform a contract with you</p></li>
                     <li><p>You have given us permission to do so</p></li>
@@ -149,8 +149,8 @@
                 <div class="mb-3">
                     <h3 class="h5 text-primary font-weight-semi-bold">Retention of Data</h3>
                 </div>
-                <p>Zucandu ShipStation Integration will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
-                <p>Zucandu ShipStation Integration will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>
+                <p>Zucandu Scheduler Integration will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
+                <p>Zucandu Scheduler Integration will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>
             </div>
             <div class="mb-5">
                 <div class="mb-3">
@@ -159,17 +159,17 @@
                 <p>Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.</p>
                 <p>If you are located outside United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to United States and process it there.</p>
                 <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
-                <p>Zucandu ShipStation Integration will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
+                <p>Zucandu Scheduler Integration will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
             </div>
             <div class="mb-5">
                 <div class="mb-3">
                     <h3 class="h5 text-primary font-weight-semi-bold">Disclosure of Data</h3>
                 </div>
                 <p class="text-primary">Legal Requirements</p>
-                <p>Zucandu ShipStation Integration may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
+                <p>Zucandu Scheduler Integration may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
                 <ul>
                     <li><p>To comply with a legal obligation</p></li>
-                    <li><p>To protect and defend the rights or property of Zucandu ShipStation Integration</p></li>
+                    <li><p>To protect and defend the rights or property of Zucandu Scheduler Integration</p></li>
                     <li><p>To prevent or investigate possible wrongdoing in connection with the Service</p></li>
                     <li><p>To protect the personal safety of users of the Service or the public</p></li>
                     <li><p>To protect against legal liability</p></li>
@@ -192,7 +192,7 @@
                 <div class="mb-3">
                     <h3 class="h5 text-primary font-weight-semi-bold">Your Data Protection Rights Under General Data Protection Regulation (GDPR)</h3>
                 </div>
-                <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. Zucandu ShipStation Integration aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p>
+                <p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. Zucandu Scheduler Integration aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p>
                 <p>If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please contact us.</p>
                 <p>In certain circumstances, you have the following data protection rights:</p>
                 <ul>
@@ -212,7 +212,7 @@
                         <p><strong>The right to data portability.</strong> You have the right to be provided with a copy of the information we have on you in a structured, machine-readable and commonly used format.</p>
                     </li>
                     <li>
-                        <p><strong>The right to withdraw consent.</strong> You also have the right to withdraw your consent at any time where Zucandu ShipStation Integration relied on your consent to process your personal information.</p>
+                        <p><strong>The right to withdraw consent.</strong> You also have the right to withdraw your consent at any time where Zucandu Scheduler Integration relied on your consent to process your personal information.</p>
                     </li>
                 </ul>
                 <p>Please note that we may ask you to verify your identity before responding to such requests.</p>
@@ -234,7 +234,7 @@
                     </li>
                 </ul>
                 <p class="text-primary">Behavioral Remarketing</p>
-                <p>Zucandu ShipStation Integration uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimize and serve ads based on your past visits to our Service.</p>
+                <p>Zucandu Scheduler Integration uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimize and serve ads based on your past visits to our Service.</p>
                 <ul>
                     <li>
                         <p><strong>Google Ads (AdWords)</strong></p>
