@@ -138,6 +138,85 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/storefront/schedule.js":
+/*!*************************************************!*\
+  !*** ./resources/js/api/storefront/schedule.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  allCrons: function allCrons() {
+    return axios.get("/api/v1/storefront/user/cron/all", {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  createCron: function createCron(formdata) {
+    return axios.post("/api/v1/storefront/user/cron/create", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  updateCron: function updateCron(formdata) {
+    return axios.post("/api/v1/storefront/user/cron/update", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  deleteCron: function deleteCron(id) {
+    return axios.get("/api/v1/storefront/user/cron/delete/".concat(id), {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  allScheduleSalesPrice: function allScheduleSalesPrice() {
+    return axios.get("/api/v1/storefront/user/schedule/all-sales-price", {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  createScheduleSalesPrice: function createScheduleSalesPrice(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/create-sales-price", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  updateScheduleSalesPrice: function updateScheduleSalesPrice(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/update-sales-price", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  deleteScheduleSalesPrice: function deleteScheduleSalesPrice(id) {
+    return axios.get("/api/v1/storefront/user/schedule/delete/".concat(id), {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  },
+  AddProducts2Schedule: function AddProducts2Schedule(formdata) {
+    return axios.post("/api/v1/storefront/user/schedule/add-products", formdata, {
+      headers: {
+        'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/api/storefront/user.js":
 /*!*********************************************!*\
   !*** ./resources/js/api/storefront/user.js ***!
@@ -564,6 +643,248 @@ var mutations = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/storefront/schedule.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/store/modules/storefront/schedule.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/api/storefront/schedule */ "./resources/js/api/storefront/schedule.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+ // initial state
+
+var state = {
+  schedules: [],
+  scheduleSalesPrice: []
+}; // getters
+
+var getters = {}; // actions 
+
+var actions = {
+  allCrons: function allCrons(_ref) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              commit = _ref.commit;
+              _context.t0 = commit;
+              _context.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].allCrons();
+
+            case 4:
+              _context.t1 = _context.sent;
+              (0, _context.t0)('setSchedules', _context.t1);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  createCron: function createCron(_ref2, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref2);
+
+              _context2.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].createCron(formdata);
+
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }))();
+  },
+  updateCron: function updateCron(_ref3, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref3);
+
+              _context3.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].updateCron(formdata);
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }))();
+  },
+  deleteCron: function deleteCron(_ref4, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref4);
+
+              _context4.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].deleteCron(id);
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }))();
+  },
+  allScheduleSalesPrice: function allScheduleSalesPrice(_ref5) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              commit = _ref5.commit;
+              _context5.t0 = commit;
+              _context5.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].allScheduleSalesPrice();
+
+            case 4:
+              _context5.t1 = _context5.sent;
+              (0, _context5.t0)('setScheduleSalesPrice', _context5.t1);
+
+            case 6:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }))();
+  },
+  createScheduleSalesPrice: function createScheduleSalesPrice(_ref6, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              commit = _ref6.commit;
+              _context6.t0 = commit;
+              _context6.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].createScheduleSalesPrice(formdata);
+
+            case 4:
+              _context6.t1 = _context6.sent;
+              (0, _context6.t0)('setScheduleSalesPrice', _context6.t1);
+
+            case 6:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }))();
+  },
+  updateScheduleSalesPrice: function updateScheduleSalesPrice(_ref7, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              commit = _ref7.commit;
+              _context7.t0 = commit;
+              _context7.next = 4;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].updateScheduleSalesPrice(formdata);
+
+            case 4:
+              _context7.t1 = _context7.sent;
+              (0, _context7.t0)('setScheduleSalesPrice', _context7.t1);
+
+            case 6:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }))();
+  },
+  deleteScheduleSalesPrice: function deleteScheduleSalesPrice(_ref8, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
+        while (1) {
+          switch (_context8.prev = _context8.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref8);
+
+              _context8.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].deleteScheduleSalesPrice(id);
+
+            case 3:
+            case "end":
+              return _context8.stop();
+          }
+        }
+      }, _callee8);
+    }))();
+  },
+  AddProducts2Schedule: function AddProducts2Schedule(_ref9, formdata) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+        while (1) {
+          switch (_context9.prev = _context9.next) {
+            case 0:
+              _objectDestructuringEmpty(_ref9);
+
+              _context9.next = 3;
+              return _api_storefront_schedule__WEBPACK_IMPORTED_MODULE_1__["default"].AddProducts2Schedule(formdata);
+
+            case 3:
+            case "end":
+              return _context9.stop();
+          }
+        }
+      }, _callee9);
+    }))();
+  }
+}; // mutations is often used to filter results
+
+var mutations = {
+  setSchedules: function setSchedules(state, response) {
+    state.schedules = response.data.schedules;
+  },
+  setScheduleSalesPrice: function setScheduleSalesPrice(state, response) {
+    state.scheduleSalesPrice = response.data.schedule_sales_price;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/storefront/user.js":
 /*!*******************************************************!*\
   !*** ./resources/js/store/modules/storefront/user.js ***!
@@ -671,7 +992,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_modules_storefront_global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/modules/storefront/global */ "./resources/js/store/modules/storefront/global.js");
 /* harmony import */ var _store_modules_storefront_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/store/modules/storefront/auth */ "./resources/js/store/modules/storefront/auth.js");
 /* harmony import */ var _store_modules_storefront_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/store/modules/storefront/user */ "./resources/js/store/modules/storefront/user.js");
-/* harmony import */ var _store_modules_storefront_product__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/modules/storefront/product */ "./resources/js/store/modules/storefront/product.js");
+/* harmony import */ var _store_modules_storefront_schedule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/store/modules/storefront/schedule */ "./resources/js/store/modules/storefront/schedule.js");
+/* harmony import */ var _store_modules_storefront_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/store/modules/storefront/product */ "./resources/js/store/modules/storefront/product.js");
+
 
 
 
@@ -680,7 +1003,8 @@ __webpack_require__.r(__webpack_exports__);
   global: _store_modules_storefront_global__WEBPACK_IMPORTED_MODULE_0__["default"],
   auth: _store_modules_storefront_auth__WEBPACK_IMPORTED_MODULE_1__["default"],
   user: _store_modules_storefront_user__WEBPACK_IMPORTED_MODULE_2__["default"],
-  product: _store_modules_storefront_product__WEBPACK_IMPORTED_MODULE_3__["default"]
+  schedule: _store_modules_storefront_schedule__WEBPACK_IMPORTED_MODULE_3__["default"],
+  product: _store_modules_storefront_product__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 
 /***/ }),
