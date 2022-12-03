@@ -96,7 +96,7 @@ class Kernel extends ConsoleKernel
                     'sale_price' => NULL,
                     'started_at' => NULL,
                     'expired_at' => NULL,
-                    'push_status' > 0
+                    'push_status' => 0
                 ]);
 
                 if($response->failed()) {

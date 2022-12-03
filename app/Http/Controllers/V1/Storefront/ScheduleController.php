@@ -161,7 +161,7 @@ class ScheduleController extends Controller
      */
     public function showSalesPrice()
     {
-        $schedules = DB::table('schedule_sales_price')->where('user_id', auth()->user()->id)->get();
+        $schedules = DB::table('schedule_sales_price')->where(['user_id' => auth()->user()->id, 'deleted_status' => 0])->get();
         $schedules->map(function($item) {
             $item->product_ids = DB::table('products')->where('schedule_sale_price_id', $item->id)->pluck('id')->toArray();
         });
@@ -224,7 +224,7 @@ class ScheduleController extends Controller
             $expiredAt = Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i:s');;
         }
 
-        DB::table('schedule_sales_price')->where(['id' => $request->input('id'), 'user_id' => auth()->user()->id])->update([
+        DB::table('schedule_sales_price')->where(['id' => $request->input('id'), 'user_id' => auth()->user()->id, 'deleted_status' => 0])->update([
             'name' => $request->input('name'),
             'discount_amount' => $request->input('discount_amount'),
             'started_at' => $startedAt,
@@ -252,7 +252,11 @@ class ScheduleController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 422);
         }
 
-        DB::table('products')->where([
+        DB::table('schedule_sales_price')->where(['id' => $id, 'user_id' => auth()->user()->id])->update([
+            'deleted_status' => 1,
+            'expired_at' => Carbon::now()->format('Y-m-d')
+        ]);
+        /* DB::table('products')->where([
             'schedule_sale_price_id' => $id,
             'user_id' => auth()->user()->id
         ])->update([
@@ -260,9 +264,9 @@ class ScheduleController extends Controller
             'started_at' => NULL,
             'expired_at' => NULL,
             'schedule_sale_price_id' => 0
-        ]);
+        ]); */
 
-        return DB::table('schedule_sales_price')->where('id', $id)->delete();
+        return true;
     }
 
     /**
@@ -293,7 +297,7 @@ class ScheduleController extends Controller
     public function _addProductsToSalesPrice($salesPriceId, $productIds)
     {
 
-        $schedule = DB::table('schedule_sales_price')->where('id', $salesPriceId)->first();
+        $schedule = DB::table('schedule_sales_price')->where(['id' => $salesPriceId, 'deleted_status' => 0])->first();
         $startedAt = $expiredAt = NULL;
         if($schedule->started_at) {
             $startedAt = Carbon::parse($schedule->started_at)->format('Y-m-d');
