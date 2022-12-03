@@ -426,6 +426,7 @@ export default {
         ...mapState({
             products: state => state.product.products,
             paginationLinks: state => state.product.paginationLinks,
+            downloadStatus: state => state.product.downloadStatus,
             scheduleSalesPrice: state => state.schedule.scheduleSalesPrice,
         })
     },

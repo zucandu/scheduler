@@ -238,6 +238,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     paginationLinks: function paginationLinks(state) {
       return state.product.paginationLinks;
     },
+    downloadStatus: function downloadStatus(state) {
+      return state.product.downloadStatus;
+    },
     scheduleSalesPrice: function scheduleSalesPrice(state) {
       return state.schedule.scheduleSalesPrice;
     }
