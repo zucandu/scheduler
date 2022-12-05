@@ -109,6 +109,8 @@ class Kernel extends ConsoleKernel
 
 		})->everyMinute();
 
+        // Run the auto backup per day
+        // If we have many stores to use this app, we will must handle the query from limit
         $schedule->call(function () {
 			$schedules = DB::table('schedules')->get();
             foreach($schedules as $schedule) {
