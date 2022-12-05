@@ -94,7 +94,7 @@ class ScheduleController extends Controller
         }
         
         // Update
-        DB::table('users')->where('id', $request->input('user_id'))->update(['current_backup' => $currentBackup]);
+        DB::table('users')->where('id', $user->id)->update(['current_backup' => $currentBackup]);
 
         // Updated scheduler
         DB::table('schedules')->where(['user_id' => $user->id, 'work' => 'auto_backup'])->update(['created_at' => Carbon::now()]);
