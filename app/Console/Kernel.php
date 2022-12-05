@@ -107,19 +107,18 @@ class Kernel extends ConsoleKernel
 
             }
 
-		})->everyMinute();
-
-        // Run the auto backup per day
-        // If we have many stores to use this app, we will must handle the query from limit
-        $schedule->call(function () {
-			$schedules = DB::table('schedules')->get();
+            // Run backup
+            $schedules = DB::table('schedules')->where([
+                ['created_at', '<', Carbon::now()->format('Y-m-d')]
+            ])->limit(5)->get();
             foreach($schedules as $schedule) {
                 Http::accept('application/json')->get($schedule->url);
                 if($resp->failed()) {
                     Log::error("Console: {$schedule->url} - cannot create a backup.");
                 }
             }
-		})->daily();
+
+		})->everyMinute();
 
     }
 

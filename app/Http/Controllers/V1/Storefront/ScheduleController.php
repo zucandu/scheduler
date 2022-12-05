@@ -60,6 +60,7 @@ class ScheduleController extends Controller
             'hour' => $request->input('hour', NULL),
             'minute' => $request->input('minute', NULL),
             'work' => $request->input('work', NULL),
+            'created_at' => Carbon::now()
         ]);
     }
 
@@ -94,6 +95,9 @@ class ScheduleController extends Controller
         
         // Update
         DB::table('users')->where('id', $request->input('user_id'))->update(['current_backup' => $currentBackup]);
+
+        // Updated scheduler
+        DB::table('schedules')->where(['user_id' => $user->id, 'work' => 'auto_backup'])->update(['created_at' => Carbon::now()]);
 
         return true;
     }
@@ -136,7 +140,8 @@ class ScheduleController extends Controller
             'month' => $request->input('month', NULL),
             'day' => $request->input('day', NULL),
             'hour' => $request->input('hour', NULL),
-            'minute' => $request->input('minute', NULL)
+            'minute' => $request->input('minute', NULL),
+            'created_at' => Carbon::now()
         ]);
     }
 
