@@ -86,7 +86,7 @@ class ScheduleController extends Controller
 
         $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
             'name' => "Zucandu_Scheduler_{$currentBackup}",
-            'description' => "Zucandu Scheduler - " . Carbon::now()->format('M d, Y h:ia')
+            'description' => "Zucandu Scheduler {$currentBackup} - " . Carbon::now()->format('M d, Y h:ia')
         ]);
         if($resp->failed()) {
             Log::error("{$storeUrl} - cannot create a backup.");
