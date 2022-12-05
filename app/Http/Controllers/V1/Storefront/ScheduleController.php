@@ -58,7 +58,8 @@ class ScheduleController extends Controller
             'month' => $request->input('month', NULL),
             'day' => $request->input('day', NULL),
             'hour' => $request->input('hour', NULL),
-            'minute' => $request->input('minute', NULL)
+            'minute' => $request->input('minute', NULL),
+            'work' => $request->input('work', NULL),
         ]);
     }
 
@@ -71,7 +72,7 @@ class ScheduleController extends Controller
     public function autoBackup(Request $request)
     {
 
-        $storeUrl = DB::table('users')->where('id', $request->input('user_id'))->value('store_url');
+        /* $storeUrl = DB::table('users')->where('id', $request->input('user_id'))->value('store_url');
         $token = Storage::disk('local')->get("/stores/{$storeUrl}");
 
         $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
@@ -79,9 +80,17 @@ class ScheduleController extends Controller
         ]);
         if($resp->failed()) {
             Log::error("{$storeUrl} - cannot create a backup.");
-        }
+        } */
 
-        
+        // Get current backup and max daily backup
+        $user = DB::table('users')->where('id', auth()->user()->id)->first();
+        $currentBackup = $user->current_backup;
+        if($currentBackup < $user->max_daily_backup) {
+            $currentBackup++;
+        } else {
+            $currentBackup = 1;
+        }
+        var_dump($currentBackup);die;
 
         return true;
     }
