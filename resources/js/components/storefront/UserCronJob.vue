@@ -29,8 +29,22 @@
                                         <input v-model="formdata.name" type="text" class="form-control" placeholder="E.g. Backup store" required>
                                     </div>
                                     <div class="mb-3">
+                                        <label class="form-label">Work</label>
+                                        <select v-model="formdata.work" class="form-select">
+                                            <option :value="0">-- Select --</option>
+                                            <option v-for="item in workItems" :key="item.id" :value="item.id">{{ item.text }}</option>
+                                        </select>
+                                    </div>
+                                    <div v-if="formdata.work !== `auto_backup`" class="mb-3">
                                         <label class="form-label">Common settings</label>
                                         <select v-model="formdata.common_setting" class="form-select">
+                                            <option :value="0">-- Common settings --</option>
+                                            <option v-for="item in commonSettings" :key="item.id" :value="item.id">{{ item.text }}</option>
+                                        </select>
+                                    </div>
+                                    <div v-else class="mb-3">
+                                        <label class="form-label">Common settings</label>
+                                        <select disabled v-model="formdata.common_setting" class="form-select">
                                             <option :value="0">-- Common settings --</option>
                                             <option v-for="item in commonSettings" :key="item.id" :value="item.id">{{ item.text }}</option>
                                         </select>
@@ -61,13 +75,6 @@
                                             <input v-model="formdata.weekday" type="text" class="form-control">
                                         </div>
                                     </template>
-                                    <div class="mb-3">
-                                        <label class="form-label">Work</label>
-                                        <select v-model="formdata.work" class="form-select">
-                                            <option :value="0">-- Select --</option>
-                                            <option v-for="item in workItems" :key="item.id" :value="item.id">{{ item.text }}</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <div v-if="!formdata.id">
@@ -266,5 +273,12 @@ export default {
             schedules: state => state.schedule.schedules,
         })
     },
+    watch: {
+        'formdata.work': function(v) {
+            if(v === `auto_backup`) {
+                this.formdata.common_setting = 5 // Once per day
+            }
+        }
+    }
 }
 </script>
