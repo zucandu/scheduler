@@ -80,6 +80,9 @@ class ScheduleController extends Controller
         if($resp->failed()) {
             Log::error("{$storeUrl} - cannot create a backup.");
         }
+
+        
+
         return true;
     }
 

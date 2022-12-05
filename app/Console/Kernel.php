@@ -29,8 +29,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        
         $schedule->call(function () {
-
 
             /**
              * UPDATE SALE/SPECIALS PRICE
@@ -107,7 +107,18 @@ class Kernel extends ConsoleKernel
 
             }
 
-		})->everyMinute();	
+		})->everyMinute();
+
+        $schedule->call(function () {
+			$schedules = DB::table('schedules')->get();
+            foreach($schedules as $schedule) {
+                Http::accept('application/json')->get($schedule->url);
+                if($resp->failed()) {
+                    Log::error("Console: {$schedule->url} - cannot create a backup.");
+                }
+            }
+		})->daily();
+
     }
 
     /**
