@@ -72,25 +72,28 @@ class ScheduleController extends Controller
     public function autoBackup(Request $request)
     {
 
-        /* $storeUrl = DB::table('users')->where('id', $request->input('user_id'))->value('store_url');
+        $storeUrl = DB::table('users')->where('id', $request->input('user_id'))->value('store_url');
         $token = Storage::disk('local')->get("/stores/{$storeUrl}");
 
-        $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
-            'description' => "Zucandu Scheduler - " . Carbon::now()->format('M d, Y h:ia')
-        ]);
-        if($resp->failed()) {
-            Log::error("{$storeUrl} - cannot create a backup.");
-        } */
-
         // Get current backup and max daily backup
-        $user = DB::table('users')->where('id', auth()->user()->id)->first();
+        $user = DB::table('users')->where('id', $request->input('user_id'))->first();
         $currentBackup = $user->current_backup;
         if($currentBackup < $user->max_daily_backup) {
             $currentBackup++;
         } else {
             $currentBackup = 1;
         }
-        var_dump($currentBackup);die;
+
+        $resp = Http::withToken($token)->accept('application/json')->post("https://{$storeUrl}/api/v1/app/create-backup", [
+            'name' => "Zucandu_Scheduler_{$currentBackup}",
+            'description' => "Zucandu Scheduler - " . Carbon::now()->format('M d, Y h:ia')
+        ]);
+        if($resp->failed()) {
+            Log::error("{$storeUrl} - cannot create a backup.");
+        }
+        
+        // Update
+        DB::table('users')->where('id', $request->input('user_id'))->update(['current_backup' => $currentBackup]);
 
         return true;
     }
