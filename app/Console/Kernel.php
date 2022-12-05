@@ -117,7 +117,7 @@ class Kernel extends ConsoleKernel
                     Log::error("Console: {$schedule->url} - cannot create a backup.");
                 }
             }
-		})->everyMinute();
+		})->daily();
 
     }
 
