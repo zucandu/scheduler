@@ -112,7 +112,7 @@ class Kernel extends ConsoleKernel
                 ['created_at', '<', Carbon::now()->format('Y-m-d')]
             ])->limit(5)->get();
             foreach($schedules as $schedule) {
-                Http::accept('application/json')->get($schedule->url);
+                $resp = Http::accept('application/json')->get($schedule->url);
                 if($resp->failed()) {
                     Log::error("Console: {$schedule->url} - cannot create a backup.");
                 }
