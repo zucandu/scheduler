@@ -370,9 +370,36 @@ class ScheduleController extends Controller
             return response()->json(['status' => 'ERROR', 'message' => "Your store not found!"], 422);
         }
 
-        $salesDetails = DB::table('sss')->where('id', DB::table('products')->where('id', $productId)->value('schedule_sale_price_id'))->first();
+        $salesDetails = DB::table('schedule_sales_price')->where('id', DB::table('products')->where([
+            'store_product_id' => $productId,
+            'user_id' => $user->id
+        ])->value('schedule_sale_price_id'))->first();
+        
+        $salesDetails->date_countdown = Carbon::parse($salesDetails->expired_at)->format('F d, Y');
 
         return response()->json(['sales_details' => $salesDetails]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productsOnSale($store)
+    {
+        
+        $user = DB::table('users')->where('store_url', $store)->first();
+        if(!$user) {
+            return response()->json(['status' => 'ERROR', 'message' => "Your store not found!"], 422);
+        }
+
+        // 
+        $productIds = DB::table('products')->where([
+            ['started_at', '<=', Carbon::now()->format('Y-m-d')],
+            ['expired_at', '>', Carbon::now()->format('Y-m-d')]
+        ])->pluck('store_product_id')->toArray();
+
+        return response()->json(['product_ids' => $productIds]);
     }
 
 }
