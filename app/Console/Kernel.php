@@ -98,6 +98,7 @@ class Kernel extends ConsoleKernel
                     'sale_price' => NULL,
                     'started_at' => NULL,
                     'expired_at' => NULL,
+                    'schedule_sale_price_id' => 0,
                     'push_status' => 0
                 ]);
 
