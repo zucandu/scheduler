@@ -357,4 +357,20 @@ class ScheduleController extends Controller
         }
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function salesPriceDetails($store, $productId)
+    {
+        
+        $user = DB::table('users')->where('store_url', $store)->first();
+        if(!$user) {
+            return response()->json(['status' => 'ERROR', 'message' => "Your store not found!"], 422);
+        }
+
+        return response()->json(['sales' => 'Haha']);
+    }
+
 }
