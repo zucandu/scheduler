@@ -362,7 +362,7 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function salesPriceDetails($store, $productId)
+    public function salesCountdownTimerFromProductId($store, $productId)
     {
         
         $user = DB::table('users')->where('store_url', $store)->first();
@@ -370,7 +370,9 @@ class ScheduleController extends Controller
             return response()->json(['status' => 'ERROR', 'message' => "Your store not found!"], 422);
         }
 
-        return response()->json(['sales' => 'Haha']);
+        $salesDetails = DB::table('sss')->where('id', DB::table('products')->where('id', $productId)->value('schedule_sale_price_id'))->first();
+
+        return response()->json(['sales_details' => $salesDetails]);
     }
 
 }

@@ -48,7 +48,7 @@ Route::group(['prefix' => 'v1'], function() {
         });
 
         Route::get('auto-backup', 'V1\Storefront\ScheduleController@autoBackup');
-        Route::get('{store}/{product_id}/sales', 'V1\Storefront\ScheduleController@salesPriceDetails');
+        Route::get('{store}/{product_id}/sales', 'V1\Storefront\ScheduleController@salesCountdownTimerFromProductId');
 
     });
     
