@@ -54,6 +54,9 @@ class Kernel extends ConsoleKernel
                     'id' => $product->store_product_id,
                     'sale_price' => $product->sale_price,
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    'meta' => [
+                        'schedule_sale_price_id' => $product->schedule_sale_price_id
+                    ]
                 ]);
 
                 // Updated push status
