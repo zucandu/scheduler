@@ -376,8 +376,8 @@ class ScheduleController extends Controller
         ])->value('schedule_sale_price_id'))->first();
 
         $expiredAt = $salesDetails->expired_at;
-        if(!$expiredAt) {
-            $expiredAt = Carbon::now();
+        if(empty($expiredAt)) {
+            $expiredAt = Carbon::now()->format('Y-m-d');
         }
         
         $salesDetails->date_countdown = Carbon::parse($expiredAt)->format('F d, Y');
