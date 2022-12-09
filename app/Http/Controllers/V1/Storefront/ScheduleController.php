@@ -374,8 +374,13 @@ class ScheduleController extends Controller
             'store_product_id' => $productId,
             'user_id' => $user->id
         ])->value('schedule_sale_price_id'))->first();
+
+        $expiredAt = $salesDetails->expired_at;
+        if(!$expiredAt) {
+            $expiredAt = Carbon::now();
+        }
         
-        $salesDetails->date_countdown = Carbon::parse($salesDetails->expired_at)->format('F d, Y');
+        $salesDetails->date_countdown = Carbon::parse($expiredAt)->format('F d, Y');
 
         return response()->json(['sales_details' => $salesDetails]);
     }
