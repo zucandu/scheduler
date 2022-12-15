@@ -711,7 +711,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap base-component.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap base-component.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -728,7 +728,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): base-component.js
+   * Bootstrap (v5.2.3): base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -736,7 +736,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
    * Constants
    */
 
-  const VERSION = '5.2.2';
+  const VERSION = '5.2.3';
   /**
    * Class definition
    */
@@ -820,7 +820,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap data.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap data.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -831,7 +831,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/data.js
+   * Bootstrap (v5.2.3): dom/data.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -896,7 +896,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap event-handler.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap event-handler.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -907,7 +907,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/event-handler.js
+   * Bootstrap (v5.2.3): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1189,7 +1189,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module) {
 
 /*!
-  * Bootstrap manipulator.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap manipulator.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1200,7 +1200,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/manipulator.js
+   * Bootstrap (v5.2.3): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1283,7 +1283,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap selector-engine.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap selector-engine.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1294,7 +1294,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): dom/selector-engine.js
+   * Bootstrap (v5.2.3): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1378,7 +1378,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap modal.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap modal.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1398,7 +1398,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): modal.js
+   * Bootstrap (v5.2.3): modal.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1787,7 +1787,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap backdrop.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap backdrop.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1803,7 +1803,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/backdrop.js
+   * Bootstrap (v5.2.3): util/backdrop.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1962,7 +1962,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap component-functions.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap component-functions.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1977,7 +1977,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/component-functions.js
+   * Bootstrap (v5.2.3): util/component-functions.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2018,7 +2018,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap config.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap config.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -2033,7 +2033,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/config.js
+   * Bootstrap (v5.2.3): util/config.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2107,7 +2107,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap focustrap.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap focustrap.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -2124,7 +2124,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/focustrap.js
+   * Bootstrap (v5.2.3): util/focustrap.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2246,7 +2246,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(__unused_webpack_module, exports) {
 
 /*!
-  * Bootstrap index.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap index.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -2257,7 +2257,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/index.js
+   * Bootstrap (v5.2.3): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2606,7 +2606,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 /*!
-  * Bootstrap scrollbar.js v5.2.2 (https://getbootstrap.com/)
+  * Bootstrap scrollbar.js v5.2.3 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -2622,7 +2622,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.2.2): util/scrollBar.js
+   * Bootstrap (v5.2.3): util/scrollBar.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
