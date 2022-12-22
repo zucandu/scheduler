@@ -7,7 +7,7 @@ const state = {
 
 // getters
 const getters = {
-    
+    isUserLogged: (state) => !_.isEmpty(state.profile) && !_.isEmpty(localStorage.getItem('jwt_user')),
 }
 
 // actions 
@@ -24,7 +24,8 @@ const actions = {
 const mutations = {
     setUserProfile(state, response) {
         state.profile = response.data.user
-    }
+    },
+    resetProfile: (state) => state.profile = {},
 };
 
 export default {

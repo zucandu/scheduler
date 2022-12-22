@@ -29,6 +29,7 @@ const actions = {
 
     logout({ commit }) {
         commit('setToken')
+        commit('resetProfile')
     }
 }
 

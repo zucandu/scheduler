@@ -1,7 +1,7 @@
 <template>
     <section class="min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
-            <div v-if="!isUserToken" class="row justify-content-center">
+            <div v-if="!isUserLogged" class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="d-flex justify-content-center py-4">
                         <router-link to="/" class="logo">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div v-else class="row">
-                <div class="col-12 text-center">
+                <div v-if="isUserToken" class="col-12 text-center">
                     <p>You have already logged into the system. Please go to the <router-link to="/store/dashboard">Zucandu Scheduler Dashboard</router-link> or back to the <router-link to="/">home page</router-link>.</p>
                 </div>
             </div>
@@ -83,7 +83,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['isUserToken']),
+        ...mapGetters(['isUserLogged', 'isUserToken']),
     }
 }
 </script>

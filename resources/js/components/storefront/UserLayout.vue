@@ -1,5 +1,5 @@
 <template>
-    <template v-if="isUserToken">
+    <template v-if="loaded && isUserLogged">
         <layout-header></layout-header>
         <div id="user-panel" class="user-panel pb-5">
             <router-view></router-view>
@@ -14,11 +14,14 @@ import ElementToast from '@/components/storefront/templates/element/Toast'
 
 import { mapGetters } from 'vuex';
 export default {
+    data: () => ({
+        loaded: false
+    }),
     components: { LayoutHeader, ElementToast },
     created() {
-        if(!this.isUserToken) {
-            this.$router.push('/login')
-        }
+        this.$store.dispatch('getUserProfile')
+            .then(() => this.loaded = true)
+            .catch(() => this.$router.push('/login'))
     },
     mounted() {
         const toggleBtn = document.querySelector('.toggle-sidebar-btn')
@@ -29,7 +32,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['isUserToken']),
+        ...mapGetters(['isUserLogged']),
     }
 }
 </script>
