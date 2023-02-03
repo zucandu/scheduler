@@ -11,6 +11,7 @@ const UserDashboard = () => import(`./components/storefront/UserDashboard`)
 const UserProfile = () => import(`./components/storefront/UserProfile`)
 const UserCronJob = () => import(`./components/storefront/UserCronJob`)
 const UserScheduleSalesPrice = () => import(`./components/storefront/UserScheduleSalesPrice`)
+const UserBanners = () => import(`./components/storefront/UserBanners`)
 
 const storefrontChildrenRoutes = [
     {
@@ -68,6 +69,11 @@ const storefrontChildrenRoutes = [
                 path: 'schedule-sales-price',
                 name: 'user_schedule_sales_price',
                 component: UserScheduleSalesPrice,
+            },
+            {
+                path: 'banners-timer',
+                name: 'user_banners_timer',
+                component: UserBanners,
             },
         ]
     },

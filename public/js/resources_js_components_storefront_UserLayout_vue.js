@@ -3272,14 +3272,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      loaded: false
+    };
+  },
   components: {
     LayoutHeader: _components_storefront_templates_layout_Header__WEBPACK_IMPORTED_MODULE_0__["default"],
     ElementToast: _components_storefront_templates_element_Toast__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   created: function created() {
-    if (!this.isUserToken) {
-      this.$router.push('/login');
-    }
+    var _this = this;
+
+    this.$store.dispatch('getUserProfile').then(function () {
+      return _this.loaded = true;
+    })["catch"](function () {
+      return _this.$router.push('/login');
+    });
   },
   mounted: function mounted() {
     var toggleBtn = document.querySelector('.toggle-sidebar-btn');
@@ -3290,7 +3299,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(['isUserToken']))
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(['isUserLogged']))
 });
 
 /***/ }),
@@ -3419,7 +3428,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_element_toast = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("element-toast");
 
-  return _ctx.isUserToken ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  return _ctx.loaded && _ctx.isUserLogged ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_layout_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_element_toast)], 64
   /* STABLE_FRAGMENT */

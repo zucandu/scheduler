@@ -369,6 +369,7 @@ var actions = {
   logout: function logout(_ref5) {
     var commit = _ref5.commit;
     commit('setToken');
+    commit('resetProfile');
   }
 }; // mutations is often used to filter results
 
@@ -911,7 +912,11 @@ var state = {
   profile: {}
 }; // getters
 
-var getters = {}; // actions 
+var getters = {
+  isUserLogged: function isUserLogged(state) {
+    return !_.isEmpty(state.profile) && !_.isEmpty(localStorage.getItem('jwt_user'));
+  }
+}; // actions 
 
 var actions = {
   getUserProfile: function getUserProfile(_ref) {
@@ -967,6 +972,9 @@ var actions = {
 var mutations = {
   setUserProfile: function setUserProfile(state, response) {
     state.profile = response.data.user;
+  },
+  resetProfile: function resetProfile(state) {
+    return state.profile = {};
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
