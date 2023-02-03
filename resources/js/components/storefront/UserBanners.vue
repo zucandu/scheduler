@@ -10,8 +10,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="fw-bold">Banners</div>
                         <div>
-                            <span class="me-2">10%</span>
-                            <button class="btn btn-success">Download banners</button>
+                            <span v-if="downloading" class="me-2">10%</span>
+                            <button @click.stop="DownloadBanners" class="btn btn-success">Download banners</button>
                         </div>
                     </div>
                     dfdf
@@ -36,7 +36,7 @@ export default {
     }),
     created() {
         
-        // Get paging products
+        // Get paging banners
         this.queryListing(this.urlGetAllParams())
 
         // Show resetAll
@@ -44,14 +44,14 @@ export default {
 
     },
     methods: {
-        downloadProducts() {
+        DownloadBanners() {
             this.downloading = true
-            this.$store.dispatch('DownloadProducts', { page: this.page }).then(() => {
+            this.$store.dispatch('DownloadBanners', { page: this.page }).then(() => {
                 
                 if(this.downloadStatus.current < this.downloadStatus.total) {
                     this.processing = Math.round(this.downloadStatus.current*100/this.downloadStatus.total)
                     this.page++
-                    this.downloadProducts()
+                    this.DownloadBanners()
                 } else {
                     this.processing = 0, this.downloading = false, this.page = 1
                     this.queryListing(this.urlGetAllParams())
@@ -81,7 +81,7 @@ export default {
         ...mapGetters(['urlGetAllParams', 'urlParamValueFromName']),
         ...mapState({
             profile: state => state.user.profile,
-            products: state => state.banner.banners,
+            banners: state => state.banner.banners,
             paginationLinks: state => state.banner.paginationLinks,
             downloadStatus: state => state.banner.downloadStatus,
         })

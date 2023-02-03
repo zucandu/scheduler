@@ -2,7 +2,7 @@ export default {
 
     AllBanners(params) {
         const queryStr = params.querystr ? `?${params.querystr}` : ``
-        return axios.get(`/api/v1/storefront/user/banners/${queryStr}`, {
+        return axios.get(`/api/v1/storefront/user/banner/all${queryStr}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
             }
@@ -10,7 +10,7 @@ export default {
     },
 
     DownloadBanners(request) {
-        return axios.get(`/api/v1/storefront/user/download-banners?page=${request.page}`, {
+        return axios.get(`/api/v1/storefront/user/banner/download?page=${request.page}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
             }

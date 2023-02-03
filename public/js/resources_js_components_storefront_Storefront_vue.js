@@ -106,14 +106,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   AllBanners: function AllBanners(params) {
     var queryStr = params.querystr ? "?".concat(params.querystr) : "";
-    return axios.get("/api/v1/storefront/user/banners/".concat(queryStr), {
+    return axios.get("/api/v1/storefront/user/banner/all".concat(queryStr), {
       headers: {
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }
     });
   },
   DownloadBanners: function DownloadBanners(request) {
-    return axios.get("/api/v1/storefront/user/download-banners?page=".concat(request.page), {
+    return axios.get("/api/v1/storefront/user/banner/download?page=".concat(request.page), {
       headers: {
         'Authorization': "Bearer ".concat(localStorage.getItem('jwt_user'))
       }

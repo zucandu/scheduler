@@ -45,6 +45,10 @@ Route::group(['prefix' => 'v1'], function() {
                 Route::get('delete/{id}', 'V1\Storefront\ScheduleController@destroySalesPrice');
                 Route::post('add-products', 'V1\Storefront\ScheduleController@addProducts');
             });
+            Route::group(['prefix' => 'banner'], function() {
+                Route::get('all', 'V1\Storefront\BannerController@all');
+                Route::get('download', 'V1\Storefront\BannerController@download');
+            });
         });
 
         Route::get('auto-backup', 'V1\Storefront\ScheduleController@autoBackup');
