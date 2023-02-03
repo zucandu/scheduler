@@ -5,6 +5,8 @@ namespace App\Http\Controllers\V1\Storefront;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+Use Storage;
+use Http;
 use DB;
 
 class BannerController extends Controller
@@ -40,7 +42,7 @@ class BannerController extends Controller
 				DB::table('banners')->updateOrInsert(
                     ['user_id' => auth()->user()->id, 'store_banner_id' => $product['id']],
                     [
-
+                        'name' => $banner['name']
                     ]
                 );
             }
