@@ -10,7 +10,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="fw-bold">Banners</div>
                         <div>
-                            <span v-if="downloading" class="me-2">10%</span>
+                            <span v-if="downloading" class="me-2">{{ processing }}%</span>
                             <button @click.stop="DownloadBanners" class="btn btn-success">Download banners</button>
                         </div>
                     </div>
@@ -44,6 +44,18 @@ export default {
 
     },
     methods: {
+        queryListing(params) {
+
+            this.loading = true
+            this.$store.dispatch('AllBanners', { objParams: params }).then(() => {
+                
+            }).catch(error => {
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
+            }).finally(() => this.loading = false)
+        },
         DownloadBanners() {
             this.downloading = true
             this.$store.dispatch('DownloadBanners', { page: this.page }).then(() => {

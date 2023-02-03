@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('store_banner_id');
             $table->string('name');
             $table->dateTime('started_at', $precision = 0)->nullable();
             $table->dateTime('expired_at', $precision = 0)->nullable();
             $table->timestamps();
 
+            $table->unique(['user_id', 'store_banner_id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -27,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['max_daily_backup']);
+            $table->dropColumn(['max_daily_backup', 'current_backup']);
         });
     }
 };
