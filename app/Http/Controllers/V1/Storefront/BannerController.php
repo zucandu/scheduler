@@ -42,7 +42,8 @@ class BannerController extends Controller
 				DB::table('banners')->updateOrInsert(
                     ['user_id' => auth()->user()->id, 'store_banner_id' => $banner['id']],
                     [
-                        'name' => $banner['translations'][0]['title']
+                        'name' => $banner['translations'][0]['title'],
+                        'created_at' => Carbon::now()
                     ]
                 );
             }

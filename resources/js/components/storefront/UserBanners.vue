@@ -21,14 +21,24 @@
                                 <th>Title</th>
                                 <th>Started at</th>
                                 <th>Expired at</th>
+                                <th class="text-end"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="banner in banners" :key="banner.id">
                                 <td>{{ banner.id }}</td>
                                 <td>{{ banner.name }}</td>
-                                <td>{{ banner.started_at }}</td>
-                                <td>{{ banner.expired_at }}</td>
+                                <td>
+                                    <span v-if="banner.started_at">{{ banner.started_at }}</span>
+                                    <span v-else>N/A</span>
+                                </td>
+                                <td>
+                                    <span v-if="banner.expired_at">{{ banner.expired_at }}</span>
+                                    <span v-else>N/A</span>
+                                </td>
+                                <td class="text-end">
+                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Set schedule</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -40,6 +50,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Set start and expired date</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        fdf
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 </template>
 
