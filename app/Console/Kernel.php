@@ -122,6 +122,50 @@ class Kernel extends ConsoleKernel
                 }
             }
 
+            // Enable banners
+            $enableBanners = DB::table('banners')->where([
+                ['started_at', '<=', Carbon::now()->format('Y-m-d H:i')],
+                'status' => 0
+            ])->limit(5)->get();
+            foreach($enableBanners as $banner) {
+                $storeURL = DB::table('users')->where('id', $banner->user_id)->value('store_url');
+                $token = Storage::disk('local')->get("/stores/{$storeURL}");
+                if(empty($token)) {
+                    Log::debug("Error #105032: Token not found!");
+                    return response()->json(['message' => 'Token not found!'], 422);
+                }
+                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner", [
+                    'id' => $banner->store_banner_id,
+                    'status' => 1,
+                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+
+                // Updated push status
+                DB::table('banners')->where('id', $banner->id)->update(['status' => 1]);
+            }
+
+            // Disable banners
+            $disableBanners = DB::table('banners')->where([
+                ['expired_at', '<=', Carbon::now()->format('Y-m-d H:i')],
+                'status' => 1
+            ])->limit(5)->get();
+            foreach($disableBanners as $banner) {
+                $storeURL = DB::table('users')->where('id', $banner->user_id)->value('store_url');
+                $token = Storage::disk('local')->get("/stores/{$storeURL}");
+                if(empty($token)) {
+                    Log::debug("Error #105032: Token not found!");
+                    return response()->json(['message' => 'Token not found!'], 422);
+                }
+                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner", [
+                    'id' => $banner->store_banner_id,
+                    'status' => 0,
+                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+
+                // Updated push status
+                DB::table('banners')->where('id', $banner->id)->update(['status' => 2]);
+            }
+
 		})->everyMinute();
 
     }
