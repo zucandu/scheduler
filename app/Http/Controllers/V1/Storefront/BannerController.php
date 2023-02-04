@@ -31,8 +31,6 @@ class BannerController extends Controller
         ]);
 
         $jsonData = $response->json();
-
-        var_dump($jsonData);die;
         
         // Error
         if(isset($jsonData['message']) && !empty($jsonData['message'])) {
@@ -44,7 +42,7 @@ class BannerController extends Controller
 				DB::table('banners')->updateOrInsert(
                     ['user_id' => auth()->user()->id, 'store_banner_id' => $banner['id']],
                     [
-                        'name' => $banner['title']
+                        'name' => $banner['translations'][0]['title']
                     ]
                 );
             }
