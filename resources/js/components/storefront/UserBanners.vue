@@ -60,8 +60,22 @@
                     </div>
                     <div class="modal-body">
                         <form @submit.prevent="setTimer">
-                            {{ formdata }}
                             <div class="fw-bold">{{ formdata.name }}</div>
+                            <div class="mt-3">
+                                <label class="form-label">Start date</label>
+                                <div class="input-group">
+                                    <span class="input-group-text d-none d-sm-flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                        </svg>
+                                    </span>
+                                    <DatePicker v-model="formdata.started_at" mode="dateTime" timezone="utc">
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                            <input class="form-control rounded-0" :value="inputValue" v-on="inputEvents">
+                                        </template>
+                                    </DatePicker>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -75,6 +89,7 @@
 </template>
 
 <script>
+import { DatePicker } from 'v-calendar';
 import Modal from 'bootstrap/js/dist/modal';
 import { mapGetters, mapState } from 'vuex'
 export default {
@@ -92,8 +107,12 @@ export default {
             name: undefined,
             started_at: undefined,
             expired_at: undefined
-        }
+        },
+        masks: {
+            input: 'YYYY-MM-DD HH:mm',
+        },
     }),
+    components: { DatePicker },
     created() {
         
         // Get paging banners
