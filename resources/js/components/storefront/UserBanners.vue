@@ -14,7 +14,29 @@
                             <button @click.stop="DownloadBanners" class="btn btn-success">Download banners</button>
                         </div>
                     </div>
-                    dfdf
+                    <table v-if="banners.length > 0" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Started at</th>
+                                <th>Expired at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="banner in banners" :key="banner.id">
+                                <td>{{ banner.id }}</td>
+                                <td>{{ banner.name }}</td>
+                                <td>{{ banner.started_at }}</td>
+                                <td>{{ banner.expired_at }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div v-if="paginationLinks.length > 0" class="row mt-5 justify-content-center">
+                        <div class="col-12 text-end">
+                            <router-link :to="{ path: `/store/banners-timer`, query: Object.assign({}, urlGetAllParams(['page']), { page: urlParamValueFromName(link.url, 'page') })}" v-for="(link, index) in paginationLinks" :key="index" :class="`btn btn-outline-dark mx-1${(!link.url ? ' disabled' : '')}${(link.active === true ? ' btn-primary text-white' : '')}`" v-html="link.label"></router-link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

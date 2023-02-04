@@ -42,7 +42,7 @@ class BannerController extends Controller
 				DB::table('banners')->updateOrInsert(
                     ['user_id' => auth()->user()->id, 'store_banner_id' => $product['id']],
                     [
-                        'name' => $banner['name']
+                        'name' => $banner['title']
                     ]
                 );
             }
@@ -63,7 +63,12 @@ class BannerController extends Controller
      */
     public function all(Request $request)
     {
-        die('1111');
+        // Get product ids from keyword
+        $userId = auth()->user()->id;
+        $query = DB::table('banners')->where('user_id', $userId);
+        $paginator = $query->orderBy('created_at', 'desc')->paginate(20);
+
+        return response()->json(['paginator' => $paginator]);
     }
 
     /**
