@@ -69,6 +69,12 @@
                         <div class="modal-body">
                             <div class="fw-bold">{{ formdata.name }}</div>
                             <div class="mt-3">
+                                <label class="form-label">Status</label>
+                                <select v-model="formdata.status" class="form-select">
+                                    <option v-for="status in statusItems" :key="status.id" :value="status.id">{{ status.text }}</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
                                 <label class="form-label">Start date</label>
                                 <div class="input-group">
                                     <span class="input-group-text d-none d-sm-flex">
@@ -128,11 +134,17 @@ export default {
         formdata: {
             name: undefined,
             started_at: undefined,
-            expired_at: undefined
+            expired_at: undefined,
+            status: 0
         },
         masks: {
             input: 'YYYY-MM-DD HH:mm A',
         },
+        statusItems: [
+            { id: 0, text: 'Waiting for activation'},
+            { id: 1, text: 'Waiting to disable'},
+            { id: 2, text: 'Completed'}
+        ]
     }),
     components: { DatePicker },
     created() {
@@ -199,6 +211,11 @@ export default {
                     expired_at: undefined
                 }
                 this.queryListing(this.urlGetAllParams())
+            }).catch(error => {
+                this.$store.commit('setAlert', {
+                    'color': 'danger', 
+                    'message': error.response.data.message
+                })
             })
         }
     },

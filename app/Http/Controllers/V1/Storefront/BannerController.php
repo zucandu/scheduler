@@ -83,6 +83,7 @@ class BannerController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required|exists:banners,id',
+            'status' => 'required|in:0,1,2'
         ]);
         
         if ($validator->fails()) {
@@ -92,6 +93,7 @@ class BannerController extends Controller
         DB::table('banners')->where(['id' => $request->input('id'), 'user_id' => $request->input('user_id')])->update([
             'started_at' => Carbon::parse($request->input('started_at'))->format('Y-m-d H:i'),
             'expired_at' => Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i'),
+            'status' => $request->input('status')
         ]);
     }
 
