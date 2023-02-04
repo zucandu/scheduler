@@ -40,7 +40,7 @@ class BannerController extends Controller
         if(isset($jsonData['paginator']['data']) && count($jsonData['paginator']['data'])) {
             foreach($jsonData['paginator']['data'] as $banner) {
 				DB::table('banners')->updateOrInsert(
-                    ['user_id' => auth()->user()->id, 'store_banner_id' => $product['id']],
+                    ['user_id' => auth()->user()->id, 'store_banner_id' => $banner['id']],
                     [
                         'name' => $banner['title']
                     ]
