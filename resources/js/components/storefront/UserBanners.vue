@@ -53,13 +53,13 @@
 
         <div class="modal fade" id="banner-schedule-modal" tabindex="-1" aria-labelledby="banner-schedule-modal-label" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="banner-schedule-modal-label">Set start and expired date</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="setTimer">
+                <form @submit.prevent="setTimer">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="banner-schedule-modal-label">Set start and expired date</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
                             <div class="fw-bold">{{ formdata.name }}</div>
                             <div class="mt-3">
                                 <label class="form-label">Start date</label>
@@ -76,12 +76,27 @@
                                     </DatePicker>
                                 </div>
                             </div>
-                        </form>
+                            <div class="mt-3">
+                                <label class="form-label">Expired date</label>
+                                <div class="input-group">
+                                    <span class="input-group-text d-none d-sm-flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                        </svg>
+                                    </span>
+                                    <DatePicker v-model="formdata.expired_at" mode="dateTime" timezone="utc">
+                                        <template v-slot="{ inputValue, inputEvents }">
+                                            <input class="form-control rounded-0" :value="inputValue" v-on="inputEvents">
+                                        </template>
+                                    </DatePicker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
 
@@ -109,7 +124,7 @@ export default {
             expired_at: undefined
         },
         masks: {
-            input: 'YYYY-MM-DD HH:mm',
+            input: 'YYYY-MM-DD HH:mm A',
         },
     }),
     components: { DatePicker },
@@ -163,6 +178,21 @@ export default {
         openModal(banner) {
             this.formdata = { ...banner }
             this.modal.show()
+        },
+        setTimer() {
+            this.$store.dispatch('setTimer', this.formdata).then(() => {
+                this.modal.hide()
+                this.$store.commit('setAlert', {
+                    'color': 'success', 
+                    'message': `You just scheduled the banner`
+                })
+                this.formdata = {
+                    name: undefined,
+                    started_at: undefined,
+                    expired_at: undefined
+                }
+                this.queryListing(this.urlGetAllParams())
+            })
         }
     },
     beforeRouteUpdate (to, from, next) {

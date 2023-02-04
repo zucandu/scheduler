@@ -16,4 +16,12 @@ export default {
             }
         })
     },
+
+    setTimer(formdata) {
+        return axios.post(`/api/v1/storefront/user/banner/schedule`, formdata, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_user')}`
+            }
+        })
+    },
 }

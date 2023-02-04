@@ -32,7 +32,10 @@ const actions = {
     },
     async DownloadBanners({ commit }, request) {
         commit('SET_DOWNLOAD', await apiBanner.DownloadBanners(request))
-    }
+    },
+    async setTimer({ commit }, formdata) {
+        await apiBanner.setTimer(formdata)
+    }, 
 }
 
 // mutations is often used to filter results

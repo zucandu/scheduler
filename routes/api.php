@@ -48,6 +48,7 @@ Route::group(['prefix' => 'v1'], function() {
             Route::group(['prefix' => 'banner'], function() {
                 Route::get('all', 'V1\Storefront\BannerController@all');
                 Route::get('download', 'V1\Storefront\BannerController@download');
+                Route::post('schedule', 'V1\Storefront\BannerController@store');
             });
         });
 

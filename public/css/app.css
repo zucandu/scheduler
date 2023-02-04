@@ -10851,3 +10851,7 @@ input[type=checkbox].indeterminate {
 .dashboard-container .card-body:hover {
   color: #4154f1 !important;
 }
+
+.is-today {
+  color: red !important;
+}

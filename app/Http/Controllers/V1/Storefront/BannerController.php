@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1\Storefront;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 Use Storage;
 use Http;
@@ -80,7 +81,18 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:banners,id',
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first()], 422);
+        }
+
+        DB::table('banners')->where(['id' => $request->input('id'), 'user_id' => $request->input('user_id')])->update([
+            'started_at' => Carbon::parse($request->input('started_at'))->format('Y-m-d H:i'),
+            'expired_at' => Carbon::parse($request->input('expired_at'))->format('Y-m-d H:i'),
+        ]);
     }
 
     /**
