@@ -37,7 +37,7 @@
                                     <span v-else>N/A</span>
                                 </td>
                                 <td class="text-end">
-                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Set schedule</button>
+                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#banner-schedule-modal">Set schedule</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -51,11 +51,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="banner-schedule-modal" tabindex="-1" aria-labelledby="banner-schedule-modal-label" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Set start and expired date</h1>
+                        <h1 class="modal-title fs-5" id="banner-schedule-modal-label">Set start and expired date</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
