@@ -39,8 +39,8 @@
                                 </td>
                                 <td>
                                     {{ banner.status }}
-                                    <span v-if="+banner.status === 0" class="badge badge-primary">Waiting for activation</span>
-                                    <span v-else-if="+banner.status === 1" class="badge badge-primary">Waiting to disable</span>
+                                    <span v-if="banner.status == 0" class="badge badge-primary">Waiting for activation</span>
+                                    <span v-else-if="banner.status == 1" class="badge badge-primary">Waiting to disable</span>
                                     <span v-else class="badge badge-primary">Completed</span>
                                 </td>
                                 <td class="text-end">
