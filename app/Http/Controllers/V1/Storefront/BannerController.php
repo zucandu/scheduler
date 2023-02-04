@@ -31,6 +31,8 @@ class BannerController extends Controller
         ]);
 
         $jsonData = $response->json();
+
+        var_dump($jsonData);die;
         
         // Error
         if(isset($jsonData['message']) && !empty($jsonData['message'])) {
