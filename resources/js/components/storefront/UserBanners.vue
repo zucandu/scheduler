@@ -21,6 +21,7 @@
                                 <th>Title</th>
                                 <th>Started at</th>
                                 <th>Expired at</th>
+                                <th>Status</th>
                                 <th class="text-end"></th>
                             </tr>
                         </thead>
@@ -35,6 +36,11 @@
                                 <td>
                                     <span v-if="banner.expired_at">{{ banner.expired_at }}</span>
                                     <span v-else>N/A</span>
+                                </td>
+                                <td>
+                                    <span v-if="+banner.status === 0" class="badge badge-primary">Waiting for activation</span>
+                                    <span v-if="+banner.status === 1" class="badge badge-primary">Waiting to disable</span>
+                                    <span v-if="+banner.status === 2" class="badge badge-primary">Completed</span>
                                 </td>
                                 <td class="text-end">
                                     <button @click="openModal(banner)" type="button" class="btn btn-outline-success btn-sm">Set schedule</button>
