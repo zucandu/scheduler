@@ -37,7 +37,7 @@
                                     <span v-else>N/A</span>
                                 </td>
                                 <td class="text-end">
-                                    <button @click="openModal(banner)" type="button">Set schedule</button>
+                                    <button @click="openModal(banner)" type="button" class="btn btn-outline-success btn-sm">Set schedule</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -59,7 +59,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        fdf
+                        <form @submit.prevent="setTimer">
+                            {{ formdata }}
+                            <div class="fw-bold">{{ formdata.name }}</div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
