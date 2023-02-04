@@ -40,7 +40,7 @@
                                 <td>
                                     <span v-if="+banner.status === 0" class="badge badge-primary">Waiting for activation</span>
                                     <span v-if="+banner.status === 1" class="badge badge-primary">Waiting to disable</span>
-                                    <span v-if="+banner.status === 2" class="badge badge-primary">Completed</span>
+                                    <span v-else class="badge badge-primary">Completed</span>
                                 </td>
                                 <td class="text-end">
                                     <button @click="openModal(banner)" type="button" class="btn btn-outline-success btn-sm">Set schedule</button>
