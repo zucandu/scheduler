@@ -37,7 +37,7 @@
                                     <span v-else>N/A</span>
                                 </td>
                                 <td class="text-end">
-                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#banner-schedule-modal">Set schedule</button>
+                                    <button @click="openModal(banner)" type="button">Set schedule</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import Modal from 'bootstrap/js/dist/modal';
 import { mapGetters, mapState } from 'vuex'
 export default {
     data: () => ({
@@ -82,7 +83,13 @@ export default {
         checkboxes: [],
         checkAll: false,
         downloading: false,
-        processing: 0
+        processing: 0,
+        modal: undefined,
+        formdata: {
+            name: undefined,
+            started_at: undefined,
+            expired_at: undefined
+        }
     }),
     created() {
         
@@ -92,6 +99,10 @@ export default {
         // Show resetAll
         this.resetAll = Object.keys(this.$route.query).filter(k => k !== 'page').length > 0
 
+    },
+    mounted() {
+        const modalEl = document.getElementById('banner-schedule-modal')
+        this.modal = new Modal(modalEl)
     },
     methods: {
         queryListing(params) {
@@ -126,6 +137,10 @@ export default {
                     'message': error.response.data.message
                 })
             })
+        },
+        openModal(banner) {
+            this.formdata = { ...banner }
+            this.modal.show()
         }
     },
     beforeRouteUpdate (to, from, next) {
