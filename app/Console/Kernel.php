@@ -134,10 +134,9 @@ class Kernel extends ConsoleKernel
                     Log::debug("Error #105032: Token not found!");
                     return response()->json(['message' => 'Token not found!'], 422);
                 }
-                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner", [
+                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner-status", [
                     'id' => $banner->store_banner_id,
-                    'status' => 1,
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    'status' => 1
                 ]);
 
                 // Updated push status
@@ -156,10 +155,9 @@ class Kernel extends ConsoleKernel
                     Log::debug("Error #105032: Token not found!");
                     return response()->json(['message' => 'Token not found!'], 422);
                 }
-                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner", [
+                $response = Http::withToken($token)->accept('application/json')->post("https://{$storeURL}/api/v1/app/update-banner-status", [
                     'id' => $banner->store_banner_id,
-                    'status' => 0,
-                    'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    'status' => 0
                 ]);
 
                 // Updated push status
