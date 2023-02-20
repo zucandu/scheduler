@@ -90,8 +90,6 @@ class UserController extends Controller
 
         $updateData = [
             'name' => $request->input('name'),
-            'redeem_ratio' => $request->input('redeem_ratio', 0.01),
-            'earn_ratio' => $request->input('earn_ratio', 1),
         ];
 
         if($request->input('password')) {
