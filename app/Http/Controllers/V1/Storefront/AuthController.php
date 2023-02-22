@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Str;
 use DB;
 
+
 class AuthController extends Controller
 {
     /**
@@ -57,7 +58,7 @@ class AuthController extends Controller
             $token = auth()->user()->createToken('jwt_user')->accessToken;
             return response()->json(['token' => $token], 200);
         } else {
-            return response()->json(['message' => 'Your email or password was incorrect. Please try again.'], 401);
+            return response()->json(['message' => 'Your store url or password was incorrect. Please try again.'], 401);
         }
 
     }
@@ -120,7 +121,8 @@ class AuthController extends Controller
         $passwordReset = PasswordReset::updateOrCreate([
             'email' => $customer->email
         ],[
-            'token' => Str::random(60)
+            'token' => Str::random(60),
+            'store_url' => $customer->store_url
         ]);
 
         if ($customer && $passwordReset) {
@@ -166,7 +168,7 @@ class AuthController extends Controller
             ], 404);
         }
 
-        $customer = User::where('email', $passwordReset->email)->first();
+        $customer = User::where(['email' => $passwordReset->email, 'store_url' => $passwordReset->store_url])->first();
         if (!$customer) {
             return response()->json([
                 'message' => "We can't find a user with that e-mail address."

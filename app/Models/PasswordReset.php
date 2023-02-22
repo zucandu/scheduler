@@ -12,6 +12,6 @@ class PasswordReset extends Model
     protected $primaryKey = 'email'; 
 
     protected $fillable = [
-        'email', 'token'
+        'email', 'token', 'store_url'
     ];
 }
