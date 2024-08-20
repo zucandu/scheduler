@@ -14,4 +14,4 @@ import AppComponent from './components/App.vue'
 const app = createApp(AppComponent)
 app.use(router)
     .use(store)
-    .mount("#feeder-app")
+    .mount("#scheduler-app")

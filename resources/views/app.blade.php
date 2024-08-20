@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="toggle-sidebar">
-    <div id="feeder-app"></div>
+    <div id="scheduler-app"></div>
 </body>
 </html>
 <script src="{{ mix('js/app.js') }}"></script>
